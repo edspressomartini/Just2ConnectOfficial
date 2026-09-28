@@ -220,62 +220,122 @@
   padding-bottom: 24px;
 }
 
+/*
+ * Three tiers, so explicit column counts. The cards are now real cards with a
+ * background, because they carry a price and have to read as comparable
+ * options rather than three loose illustrations.
+ */
 .speedGrid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
-  justify-content: center;
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 24px 5% 0;
+  justify-items: center;
+}
+
+@media screen and (min-width: 900px) {
+  .speedGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .speedCard {
-  padding: 28px 20px;
+  padding: 28px 24px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 8px;
+  gap: 6px;
+  background-color: var(--colourBackWhite);
+  border-radius: 14px;
+  box-shadow: var(--shadowCard);
+  width: 100%;
+  /* Stops the card sprawling when the grid is a single column. */
+  max-width: 400px;
+}
+
+@media screen and (min-width: 900px) {
+  .speedCard {
+    max-width: none;
+    height: 100%;
+  }
 }
 
 .speedCard__name {
   color: var(--colourTextDark);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 .speedCard__image {
-  width: 60%;
+  width: 42%;
+  max-width: 130px;
   height: auto;
-  margin: 8px 0;
+  margin: 4px 0;
 }
 
 .speedCard__technology {
-  color: var(--colourTextDark);
-  font-weight: 600;
+  color: var(--colourTextGrey);
+  font-size: 0.875rem;
 }
 
+/*
+ * One figure per row rather than two side by side. The widest value is
+ * "80 to 1,000", which wrapped in a half-width column and pulled its label out
+ * of line with the one beside it.
+ */
 .speedCard__figures {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
   width: 100%;
-  padding-top: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--colourBackLilac);
+  margin-top: 14px;
 }
 
 .speedCard__figure {
-  flex: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 12px;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
 }
 
 .speedCard__value {
   font-weight: bold;
+  font-size: 1.25rem;
   color: var(--colourPop);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.speedCard__unit {
+  font-size: 0.75rem;
+  padding-left: 2px;
 }
 
 .speedCard__label {
   color: var(--colourTextGrey);
   font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.speedCard__bestFor {
+  color: var(--colourTextGrey);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  padding-top: 16px;
+  /* Pushes the price to the bottom so it lines up across the three cards. */
+  flex: 1;
+}
+
+.speedCard__price {
+  color: var(--colourTextDark);
+  font-weight: bold;
+  padding-top: 16px;
 }
 
 /* FAQ */

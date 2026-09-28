@@ -41,13 +41,31 @@ export default function BusinessBroadbandPage() {
               <dl className="speedCard__figures">
                 <div className="speedCard__figure">
                   <dt className="speedCard__label">Download</dt>
-                  <dd className="speedCard__value">{tier.downloadMbps}</dd>
+                  <dd className="speedCard__value">
+                    {tier.downloadMbps}
+                    <span className="speedCard__unit">MB</span>
+                  </dd>
                 </div>
                 <div className="speedCard__figure">
                   <dt className="speedCard__label">Upload</dt>
-                  <dd className="speedCard__value">{tier.uploadMbps}</dd>
+                  <dd className="speedCard__value">
+                    {tier.uploadMbps}
+                    <span className="speedCard__unit">MB</span>
+                  </dd>
                 </div>
               </dl>
+
+              <p className="speedCard__bestFor">{tier.bestFor}</p>
+
+              {/*
+                * Always rendered, so the price line sits on the same baseline
+                * across all three cards.
+                */}
+              <p className="speedCard__price">
+                {tier.fromPrice === undefined
+                  ? "Ask us for a price"
+                  : `From ${tier.fromPrice}`}
+              </p>
             </li>
           ))}
         </ul>

@@ -2,34 +2,54 @@ import heroImage from "@/images/ProductPage/broadbandHero.svg";
 import type { ServiceContent } from "@/types/service-content";
 
 export interface BroadbandSpeedTier {
+  /** Plain English, because nobody shops for "SOGEA". */
   readonly name: string;
+  /** The industry names, so a reader comparing quotes can match them up. */
   readonly technology: string;
+  /** Who this tier is actually for, so a reader can pick without calling. */
+  readonly bestFor: string;
   readonly downloadMbps: string;
   readonly uploadMbps: string;
+  /** Entry price, where there is one we can publish. */
+  readonly fromPrice?: string;
 }
 
 /**
- * ADSL was removed from this list: the copper network it runs on is switched
- * off on 31 January 2027, so it is no longer something to sell.
+ * Speeds as supplied by the business in September 2026.
+ *
+ * Ranges rather than single figures: every tier is sold at several speeds, and
+ * quoting only one made the entry tier look far slower than it is.
+ *
+ * ADSL is not here. The copper network it runs on is switched off on
+ * 31 January 2027, so it is no longer something to sell. G.Fast has gone for
+ * the same reason, and it was never a product we supplied.
  */
 export const broadbandSpeedTiers: readonly BroadbandSpeedTier[] = [
   {
-    name: "Superfast",
-    technology: "FTTC & FTTP",
-    downloadMbps: "35 MBPS",
-    uploadMbps: "17 MBPS",
+    name: "Fibre to the cabinet",
+    technology: "SOGEA, previously FTTC. Sold as superfast.",
+    bestFor:
+      "Small offices and shops, where a handful of people are online at once.",
+    downloadMbps: "40 to 80",
+    uploadMbps: "10 to 20",
   },
   {
-    name: "Ultrafast",
-    technology: "FTTP & G.Fast",
-    downloadMbps: "300 MBPS",
-    uploadMbps: "50 MBPS",
+    name: "Full fibre",
+    technology: "FTTP. Sold as ultrafast.",
+    bestFor:
+      "Most businesses. Fibre all the way to the building, with no copper left in the line.",
+    downloadMbps: "80 to 1,000",
+    uploadMbps: "20 to 115",
+    fromPrice: "£39.99 a month",
   },
   {
-    name: "Leased Line",
-    technology: "Dedicated fibre",
-    downloadMbps: "1,000 MBPS",
-    uploadMbps: "1,000 MBPS",
+    name: "Leased line",
+    technology: "Dedicated fibre, the same speed both ways.",
+    bestFor:
+      "Businesses that cannot afford to be offline. The line is yours alone, so the speed is guaranteed rather than shared.",
+    downloadMbps: "100 to 10,000",
+    uploadMbps: "100 to 10,000",
+    fromPrice: "£275 a month",
   },
 ];
 
@@ -37,21 +57,17 @@ export const businessBroadband: ServiceContent = {
   slug: "business-broadband",
   navLabel: "Broadband",
   heading: "Business Broadband",
-  strapline: ["Superfast", "Ultrafast", "Leased Lines"],
+  strapline: ["Full fibre", "Leased lines", "Unlimited support"],
   metaTitle: "Business Broadband in Hertfordshire",
   metaDescription:
-    "Fast, superfast and ultrafast business broadband across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited data, free static IP and UK support.",
+    "Full fibre, fibre to the cabinet and leased lines for businesses across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited data, free static IP and UK support.",
   heroImage,
   heroImageAlt: "Illustration of a business broadband connection",
-  /*
-   * Fibre to the premises only. No leased line price here yet: the figure we
-   * were given pairs £275 a month with a 10Mb download, which cannot be right
-   * and would read as worse value than the £39.99 fibre.
-   */
+  /* Full fibre. Leased lines are priced separately on the speed cards. */
   fromPrice: {
     amount: "£39.99",
     unit: "a month",
-    note: "Fibre to the premises, on a lifetime price guarantee",
+    note: "Full fibre, on a lifetime price guarantee",
   },
   nutshell: [
     "We have partnered with the UK's leading, award-winning ISP. This gives us the best connectivity at very competitive prices. Plus full service provisioning and a comprehensive range of fault diagnostic tools, all available within our portal.",
@@ -94,7 +110,7 @@ export const businessBroadband: ServiceContent = {
       answer: [
         {
           kind: "paragraph",
-          text: "Generally speaking, the best broadband is the fastest you can get. FTTC is available in most areas, whilst FTTP is available in a growing number of locations. We will check exactly what can be delivered to your postcode before recommending anything.",
+          text: "Generally speaking, the best broadband is the fastest you can get. Fibre to the cabinet is available almost everywhere, and full fibre reaches more postcodes every month. We will check exactly what can be delivered to your address before recommending anything, so you are not paying for a headline speed your street cannot actually carry.",
         },
       ],
     },
@@ -104,9 +120,9 @@ export const businessBroadband: ServiceContent = {
         {
           kind: "list",
           items: [
-            "Superfast: known as FTTC or VDSL - typically 37MB download / 17MB upload",
-            "Ultrafast: known as FTTP and G.Fast - typically 300MB download / 50MB upload",
-            "Leased Line: a dedicated fibre from 100MB to 1,000MB, the same speed up and down",
+            "Fibre to the cabinet: fibre to the street, copper for the last stretch. Known as SOGEA, and previously as FTTC or VDSL. Typically 40MB to 80MB download, 10MB to 20MB upload.",
+            "Full fibre: fibre all the way into the building. Known as FTTP. Typically 80MB to 1,000MB download, 20MB to 115MB upload.",
+            "Leased line: a dedicated fibre that nobody else shares, from 100MB to 10,000MB, the same speed up and down.",
           ],
         },
       ],
@@ -142,7 +158,7 @@ export const businessBroadband: ServiceContent = {
       answer: [
         {
           kind: "paragraph",
-          text: "You should consider having your own leased line. This will give you from 100MB/100MB to 1000MB/1000MB.",
+          text: "You should consider having your own leased line. This will give you from 100MB/100MB up to 10,000MB/10,000MB, the same speed in both directions.",
         },
         {
           kind: "paragraph",
