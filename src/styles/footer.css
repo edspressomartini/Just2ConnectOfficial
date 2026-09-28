@@ -1,92 +1,148 @@
+/*
+ * Transition from the page into the navy footer. The artwork is a 900x300
+ * artboard, so at desktop widths `height: auto` rendered it nearly 500px tall
+ * and almost all of that was empty fill. It is squashed to a fixed height
+ * instead, which the SVG allows via preserveAspectRatio="none".
+ *
+ * The background colour matters: the top of the artwork is transparent above
+ * the first wave crest, so without it that strip shows the body lilac and
+ * leaves a hard edge under the pale section above.
+ */
 .wavesFooter {
   display: block;
   width: 100%;
-  height: auto;
+  height: 70px;
+  background-color: var(--colourBackLilac);
+  /* Kills the sliver of page background that rounding can leave underneath. */
   margin-bottom: -1px;
+}
+
+@media screen and (min-width: 768px) {
+  .wavesFooter {
+    height: 110px;
+  }
 }
 
 .footer {
   width: 100%;
-  background-color: var(--colourBackWhite);
-  color: var(--colourTextGrey);
-  text-align: center;
-  padding: 0 10% 32px;
+  background-color: var(--colourTextDark);
+  color: #c3cce6;
+  padding: 40px 6% 32px;
+}
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 36px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 600px) {
+  .footer__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/*
+ * The brand column carries a paragraph, so it gets roughly double the width of
+ * the three link columns rather than an equal quarter.
+ */
+@media screen and (min-width: 1000px) {
+  .footer__columns {
+    grid-template-columns: 1.6fr 1fr 1fr 1.1fr;
+  }
+}
+
+.footer__brand {
+  font-size: 1.375rem;
+  font-weight: bold;
+  color: var(--colourBackWhite);
+  padding-bottom: 12px;
+}
+
+.footer__blurb {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  max-width: 42ch;
+}
+
+.footer__columnTitle {
+  font-size: 0.8125rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--colourBackWhite);
+  padding-bottom: 16px;
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9375rem;
+}
+
+.footer__link,
+.footer__contactLink {
+  color: #c3cce6;
+  text-decoration: none;
+}
+
+.footer__link:hover,
+.footer__contactLink:hover {
+  color: var(--colourBackWhite);
+  text-decoration: underline;
+}
+
+.footer__contactLink {
+  font-weight: bold;
+  color: var(--colourBackWhite);
+}
+
+.footer__address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.footer__hours {
+  color: #9aa7c9;
 }
 
 .footer__social {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 12px;
-  padding: 8px 0 16px;
+  padding-top: 20px;
 }
 
 .footer__socialLink {
   display: inline-flex;
-  transition: transform 500ms ease;
+  transition: transform 300ms ease;
 }
 
 .footer__socialLink:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
+/* The icons are drawn in dark ink, so they need lightening on the navy. */
 .footer__socialIcon {
-  width: 50px;
-  height: 50px;
+  width: 38px;
+  height: 38px;
+  filter: invert(1) brightness(1.8);
 }
 
-.footer__title {
-  font-size: 1.2rem;
-  padding-top: 8px;
-}
-
-.footer__links {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 0;
-  padding: 8px 0;
-}
-
-.footer__links li {
-  padding: 0 20px;
-}
-
-.footer__link {
-  text-decoration: none;
-  color: var(--colourTextGrey);
-}
-
-.footer__link:hover {
-  color: var(--colourPop);
-}
-
-.footer__contact {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 24px;
-  padding: 8px 0 4px;
-  font-weight: bold;
-}
-
-.footer__contactLink {
-  color: var(--colourPop);
-  text-decoration: none;
-}
-
-.footer__contactLink:hover {
-  text-decoration: underline;
+.footer__base {
+  max-width: 1200px;
+  margin: 36px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: #9aa7c9;
 }
 
 .footer__legal {
-  margin-top: 16px;
-  font-size: 0.8rem;
-}
-
-.footer__areas {
-  margin-top: 12px;
-  font-size: 0.8rem;
-  color: var(--colourTextGrey);
+  padding-top: 8px;
 }

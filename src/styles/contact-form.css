@@ -48,8 +48,11 @@
   font-size: 1.125rem;
   padding: 14px 20px;
   color: var(--colourTextDark);
-  /* A visible border, so the fields still read as fields on a pale panel. */
-  border: 2px solid var(--colourBackLilac);
+  /*
+   * Mid tone rather than the lilac background token, so the fields still read
+   * as fields on the white contact panel and on the lilac page background.
+   */
+  border: 2px solid #aebbdd;
   background-color: var(--colourBackWhite);
 }
 

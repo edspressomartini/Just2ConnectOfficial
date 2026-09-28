@@ -349,11 +349,15 @@
  * No decorative blob behind the form. It was a dark navy shape, and the form's
  * labels are dark navy too, so every field label was invisible against it.
  */
+/*
+ * Deliberately no background of its own. Pages that end on this block and
+ * pages that end on the bare body then meet the footer wave on the same
+ * colour, so the wave blends on all of them rather than only on some.
+ */
 .enquirySection {
   width: 100%;
   padding: 60px 20px 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--colourBackGrey);
 }
