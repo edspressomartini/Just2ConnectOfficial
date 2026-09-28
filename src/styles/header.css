@@ -136,7 +136,7 @@
 }
 
 /*
- * Call to action. Always rendered, at every width — the previous build hid this
+ * Call to action. Always rendered, at every width. The previous build hid this
  * inside the collapsed mobile menu, which left phone visitors with no way to call.
  */
 .headerCall {
