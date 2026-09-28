@@ -479,7 +479,17 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 20px 5% 32px;
-  scrollbar-width: thin;
+  /*
+   * Scrollbar hidden. The partly visible card at the right edge is the
+   * affordance instead. Scrolling itself is untouched, so touch, trackpad and
+   * keyboard all still work.
+   */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonialTrack::-webkit-scrollbar {
+  display: none;
 }
 
 .testimonial {
