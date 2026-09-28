@@ -101,8 +101,12 @@ export default function ContactPage() {
 
       <section className="clientSection" aria-labelledby="clients-heading">
         <h2 id="clients-heading" className="clientSection__title">
-          Some of the businesses we look after
+          You would be in good company
         </h2>
+        <p className="clientSection__strapline">
+          A few of the businesses across Hertfordshire, Bedfordshire and
+          Buckinghamshire that we look after.
+        </p>
 
         <ul className="clientGrid">
           {clientLogos.map((client) => (

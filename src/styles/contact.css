@@ -120,7 +120,18 @@
   font-size: 2rem;
   color: var(--colourTextDark);
   text-align: center;
-  padding: 40px 20px;
+  /* The strapline below carries the lower half of the old padding. */
+  padding: 40px 20px 12px;
+}
+
+.clientSection__strapline {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 20px 32px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--colourTextGrey);
 }
 
 .clientGrid {
