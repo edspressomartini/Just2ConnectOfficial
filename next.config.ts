@@ -15,7 +15,12 @@ const legacyRedirects = [
   { from: "/multiple-sites", to: "/telephone-systems" },
   { from: "/office", to: "/telephone-systems" },
   { from: "/Broadband", to: "/business-broadband" },
-  { from: "/VideoConferencing", to: "/video-conferencing" },
+  /*
+   * Video conferencing was withdrawn in September 2026. Both the legacy and
+   * the current slug point at telephony, which is the nearest live service.
+   */
+  { from: "/VideoConferencing", to: "/telephone-systems" },
+  { from: "/video-conferencing", to: "/telephone-systems" },
   { from: "/MobileSIM", to: "/business-mobile-sim" },
   { from: "/mobile-phones", to: "/business-mobile-sim" },
   { from: "/VirtualPhoneNumbers", to: "/virtual-phone-numbers" },

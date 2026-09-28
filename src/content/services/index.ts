@@ -3,7 +3,6 @@ import { businessBroadband } from "./business-broadband";
 import { businessMobileSim } from "./business-mobile-sim";
 import { sipTrunks } from "./sip-trunks";
 import { telephoneSystems } from "./telephone-systems";
-import { videoConferencing } from "./video-conferencing";
 import { virtualPhoneNumbers } from "./virtual-phone-numbers";
 
 export {
@@ -11,7 +10,6 @@ export {
   businessMobileSim,
   sipTrunks,
   telephoneSystems,
-  videoConferencing,
   virtualPhoneNumbers,
 };
 
@@ -23,7 +21,6 @@ export const primaryServices: readonly ServiceContent[] = [
 
 /** Services grouped under the "Other Services" dropdown. */
 export const secondaryServices: readonly ServiceContent[] = [
-  videoConferencing,
   businessMobileSim,
   virtualPhoneNumbers,
   sipTrunks,

@@ -13,11 +13,16 @@ export const businessMobileSim: ServiceContent = {
   ],
   metaTitle: "Business Mobile SIM & eSIM",
   metaDescription:
-    "Business SIM-only plans on O2 and Vodafone with unlimited calls, texts and data on a 30 day contract. Keep your existing mobile number.",
+    "Business SIM-only plans on EE, Vodafone and O2 with unlimited calls, texts and data on a 30 day contract. Keep your existing mobile number.",
   heroImage,
   heroImageAlt: "Illustration of a business mobile SIM card",
+  fromPrice: {
+    amount: "£10.99",
+    unit: "a month",
+    note: "Unlimited calls and texts with 2GB of data, on a 30 day contract",
+  },
   nutshell: [
-    "We provide a range of flexible SIM-only plans on O2 or Vodafone. You don't have to be tied to a long contract. With our tariffs, 30 days notice is all we need to cancel a SIM.",
+    "We provide a range of flexible SIM-only plans on EE, Vodafone or O2. You don't have to be tied to a long contract. With our tariffs, 30 days notice is all we need to cancel a SIM.",
   ],
   features: [
     {
@@ -32,7 +37,7 @@ export const businessMobileSim: ServiceContent = {
     },
     {
       title: "Nationwide Coverage",
-      description: "SIMs available for O2 or Vodafone.",
+      description: "SIMs available on EE, Vodafone or O2.",
     },
     {
       title: "Simple To Provision",

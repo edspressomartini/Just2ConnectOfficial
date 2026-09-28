@@ -12,6 +12,11 @@ export const telephoneSystems: ServiceContent = {
   heroImage,
   heroImageAlt:
     "Grandstream desk phone supplied and configured by Just2Connect",
+  fromPrice: {
+    amount: "£5.99",
+    unit: "a month",
+    note: "Including unlimited support and site visits",
+  },
   nutshell: [
     "Cloud telephone systems have an array of benefits for businesses of all sizes. Moving a traditional telephone system to the cloud is a cost effective alternative for any business, and maintenance expenses will be a thing of the past.",
   ],

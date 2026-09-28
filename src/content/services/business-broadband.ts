@@ -43,6 +43,16 @@ export const businessBroadband: ServiceContent = {
     "Fast, superfast and ultrafast business broadband across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited data, free static IP and UK support.",
   heroImage,
   heroImageAlt: "Illustration of a business broadband connection",
+  /*
+   * Fibre to the premises only. No leased line price here yet: the figure we
+   * were given pairs £275 a month with a 10Mb download, which cannot be right
+   * and would read as worse value than the £39.99 fibre.
+   */
+  fromPrice: {
+    amount: "£39.99",
+    unit: "a month",
+    note: "Fibre to the premises, on a lifetime price guarantee",
+  },
   nutshell: [
     "We have partnered with the UK's leading, award-winning ISP. This gives us the best connectivity at very competitive prices. Plus full service provisioning and a comprehensive range of fault diagnostic tools, all available within our portal.",
     "Our expertise and experience helps select the best option for your broadband needs. We manage the installation and monitor the performance so that you can be sure you are getting the best from your connection.",

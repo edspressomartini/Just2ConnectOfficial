@@ -34,6 +34,21 @@ export function ServicePage({ service, children }: ServicePageProps) {
                 </span>
               ))}
             </p>
+
+            {service.fromPrice === undefined ? null : (
+              <p className="serviceHero__price">
+                <span className="serviceHero__priceLead">From </span>
+                <span className="serviceHero__priceAmount">
+                  {service.fromPrice.amount}
+                </span>{" "}
+                {service.fromPrice.unit}
+                {service.fromPrice.note === undefined ? null : (
+                  <span className="serviceHero__priceNote">
+                    {service.fromPrice.note}
+                  </span>
+                )}
+              </p>
+            )}
           </Col>
 
           <Col xs={12} md={5}>

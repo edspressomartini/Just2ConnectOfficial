@@ -26,7 +26,7 @@ export function LocalBusinessJsonLd() {
       postalCode: business.address.postalCode,
       addressCountry: business.address.addressCountry,
     },
-    areaServed: business.areasServed.map((area) => ({
+    areaServed: [...business.townsServed, ...business.countiesServed].map((area) => ({
       "@type": "Place",
       name: area,
     })),

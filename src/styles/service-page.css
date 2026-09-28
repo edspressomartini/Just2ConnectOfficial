@@ -34,6 +34,30 @@
   vertical-align: middle;
 }
 
+/* Entry-level price, so a buyer comparing suppliers does not have to ask. */
+.serviceHero__price {
+  padding-top: 24px;
+  font-size: 1.125rem;
+  color: var(--colourTextDark);
+}
+
+.serviceHero__priceLead {
+  color: var(--colourTextGrey);
+}
+
+.serviceHero__priceAmount {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--colourPop);
+}
+
+.serviceHero__priceNote {
+  display: block;
+  padding-top: 6px;
+  font-size: 0.9375rem;
+  color: var(--colourTextGrey);
+}
+
 .serviceHero__imageWrap {
   display: flex;
   align-items: center;

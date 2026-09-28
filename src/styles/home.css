@@ -172,8 +172,11 @@
   padding: 24px 0 48px;
 }
 
-/* Four services, so explicit column counts rather than an auto-fit that
- * strands the fourth card on a row of its own. */
+/*
+ * Three services since video conferencing was withdrawn. One column then
+ * straight to three: a two-column stage would leave the third card stranded
+ * on a row of its own.
+ */
 .serviceCards {
   list-style: none;
   display: grid;
@@ -181,16 +184,51 @@
   gap: 40px 24px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
   .serviceCards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-@media screen and (min-width: 1000px) {
-  .serviceCards {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
+/* Services sold on enquiry rather than from a price list. */
+.otherServices {
+  max-width: 760px;
+  margin: 56px auto 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--colourBackLilac);
+  text-align: center;
+}
+
+.otherServices__title {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--colourTextGrey);
+  padding-bottom: 16px;
+}
+
+.otherServices__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;
+  list-style: none;
+}
+
+.otherServices__item {
+  padding: 8px 16px;
+  font-size: 0.9375rem;
+  color: var(--colourTextDark);
+  background-color: var(--colourBackWhite);
+  border: 1px solid var(--colourBackLilac);
+  border-radius: 999px;
+}
+
+.otherServices__note {
+  padding-top: 20px;
+  font-size: 0.9375rem;
+  color: var(--colourTextGrey);
 }
 
 .serviceCard {

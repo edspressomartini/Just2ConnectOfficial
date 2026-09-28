@@ -67,8 +67,8 @@ export function Footer() {
         </ul>
 
         <p className="footer__areas">
-          Serving businesses across {business.areasServed.slice(0, 8).join(", ")}{" "}
-          and the surrounding areas.
+          Serving businesses across {business.townsServed.join(", ")} and the
+          surrounding areas.
         </p>
 
         <p className="footer__title">

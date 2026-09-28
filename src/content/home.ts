@@ -7,7 +7,6 @@ import whySupport from "@/images/Home/whySupport.svg";
 import deskPhoneIcon from "@/images/icons/PinkDeskPhone.png";
 import routerIcon from "@/images/icons/PinkRouter.png";
 import simIcon from "@/images/icons/PinkSim.png";
-import videoConfIcon from "@/images/icons/PinkVideoConf.png";
 
 export interface HomeServiceCard {
   readonly slug: string;
@@ -35,14 +34,6 @@ export const homeServiceCards: readonly HomeServiceCard[] = [
     iconAlt: "Business broadband router",
   },
   {
-    slug: "video-conferencing",
-    title: "Video Conferencing",
-    description:
-      "Meet your customers and colleagues face to face, wherever they happen to be working.",
-    icon: videoConfIcon,
-    iconAlt: "Video conferencing",
-  },
-  {
     slug: "business-mobile-sim",
     title: "Mobile SIM Cards",
     description:
@@ -50,6 +41,18 @@ export const homeServiceCards: readonly HomeServiceCard[] = [
     icon: simIcon,
     iconAlt: "Business mobile SIM card",
   },
+];
+
+/**
+ * Supplied alongside the main services but sold on enquiry rather than from a
+ * price list, so they get a mention rather than a page of their own.
+ */
+export const otherServices: readonly string[] = [
+  "Virtual phone numbers",
+  "SIP trunks to replace ISDN lines",
+  "Structured ethernet cabling",
+  "WiFi access points",
+  "Broadband and telephony hardware",
 ];
 
 export interface HomeBenefit {

@@ -8,7 +8,7 @@ import { StatsStrip } from "@/components/StatsStrip";
 import { Testimonials } from "@/components/Testimonials";
 import { Col, Row } from "@/components/layout/Grid";
 import { business } from "@/content/business";
-import { homeBenefits, homeServiceCards } from "@/content/home";
+import { homeBenefits, homeServiceCards, otherServices } from "@/content/home";
 import heroImage from "@/images/Home/grandstream.webp";
 import welcomeIllustration1 from "@/images/Home/welcomeIllustration1.svg";
 import welcomeIllustration2 from "@/images/Home/welcomeIllustration2.svg";
@@ -89,6 +89,24 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+
+        <div className="otherServices">
+          <h3 className="otherServices__title">We also supply</h3>
+          <ul className="otherServices__list">
+            {otherServices.map((item) => (
+              <li key={item} className="otherServices__item">
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="otherServices__note">
+            Priced on enquiry, because it depends on the site.{" "}
+            <CallLink source="home-other-services" className="inlineLink">
+              Call {business.phone.display}
+            </CallLink>{" "}
+            and we will tell you what it would cost.
+          </p>
+        </div>
       </section>
 
       <section className="welcomeSection" aria-labelledby="welcome-heading">

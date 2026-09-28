@@ -19,6 +19,21 @@ export interface ServiceFaq {
   readonly answer: readonly FaqBlock[];
 }
 
+/**
+ * Entry-level price shown under the hero. Deliberately a "from" figure: the
+ * real prices move, and a page that has to be re-edited every quarter ends up
+ * wrong instead. Omit the field entirely on services where we have no figure
+ * we are confident publishing.
+ */
+export interface ServicePrice {
+  /** Formatted with the currency symbol, e.g. `"£39.99"`. */
+  readonly amount: string;
+  /** Billing period, e.g. `"a month"`. */
+  readonly unit: string;
+  /** What the entry price actually buys. Keep it to one short clause. */
+  readonly note?: string;
+}
+
 export interface ServiceContent {
   readonly slug: string;
   /** Label used in the header navigation. */
@@ -31,6 +46,7 @@ export interface ServiceContent {
   readonly metaDescription: string;
   readonly heroImage: StaticImageData;
   readonly heroImageAlt: string;
+  readonly fromPrice?: ServicePrice;
   /** "In a nutshell" paragraphs. */
   readonly nutshell: readonly string[];
   readonly features: readonly ServiceFeature[];

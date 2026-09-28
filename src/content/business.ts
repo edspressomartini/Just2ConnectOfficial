@@ -39,7 +39,10 @@ export interface Business {
   readonly phone: PhoneNumber;
   readonly email: string;
   readonly address: PostalAddress;
-  readonly areasServed: readonly string[];
+  /** Towns we actually have customers in. Named in copy. */
+  readonly townsServed: readonly string[];
+  /** Wider counties, for structured data rather than copy. */
+  readonly countiesServed: readonly string[];
   readonly social: SocialProfiles;
   readonly openingHours: OpeningHours;
 }
@@ -62,26 +65,25 @@ export const business: Business = {
     postalCode: "HP23 5TE",
     addressCountry: "GB",
   },
-  areasServed: [
+  townsServed: [
     "Berkhamsted",
     "Tring",
     "Hemel Hempstead",
     "St Albans",
     "Harpenden",
+    "Harrow",
     "Aylesbury",
     "Watford",
     "Luton",
-    "Hertfordshire",
-    "Bedfordshire",
-    "Buckinghamshire",
   ],
+  countiesServed: ["Hertfordshire", "Bedfordshire", "Buckinghamshire"],
   social: {
     linkedIn: "https://www.linkedin.com/company/just2connect-ltd/",
   },
   openingHours: {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "17:30",
+    opens: "08:30",
+    closes: "18:00",
   },
 };
 
