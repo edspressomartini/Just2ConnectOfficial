@@ -323,11 +323,46 @@
   letter-spacing: 1px;
 }
 
+/*
+ * The rows a buyer actually compares between tiers. Left aligned, because
+ * centring made each value look like a separate statement rather than one
+ * column of a comparison.
+ */
+.speedCard__specs {
+  width: 100%;
+  text-align: left;
+  padding-top: 16px;
+  margin-top: 14px;
+  border-top: 1px solid var(--colourBackLilac);
+}
+
+.speedCard__specLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--colourTextGrey);
+}
+
+.speedCard__specValue {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--colourTextDark);
+  padding: 2px 0 12px;
+}
+
+.speedCard__specValue:last-child {
+  padding-bottom: 0;
+}
+
 .speedCard__bestFor {
   color: var(--colourTextGrey);
   font-size: 0.9375rem;
   line-height: 1.6;
-  padding-top: 16px;
+  font-style: italic;
+  padding-top: 18px;
+  margin-top: 14px;
+  border-top: 1px solid var(--colourBackLilac);
+  width: 100%;
   /* Pushes the price to the bottom so it lines up across the three cards. */
   flex: 1;
 }

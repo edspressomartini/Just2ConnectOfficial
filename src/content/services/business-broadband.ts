@@ -10,6 +10,12 @@ export interface BroadbandSpeedTier {
   readonly bestFor: string;
   readonly downloadMbps: string;
   readonly uploadMbps: string;
+  /** How the line physically reaches the building. */
+  readonly delivery: string;
+  /** Whether the bandwidth is shared with other premises. */
+  readonly sharing: string;
+  /** What happens when it breaks, which is what separates the tiers. */
+  readonly support: string;
   /** Entry price, where there is one we can publish. */
   readonly fromPrice?: string;
 }
@@ -32,23 +38,32 @@ export const broadbandSpeedTiers: readonly BroadbandSpeedTier[] = [
       "Small offices and shops, where a handful of people are online at once.",
     downloadMbps: "40 to 80",
     uploadMbps: "10 to 20",
+    delivery: "Fibre to the street cabinet, copper for the last stretch",
+    sharing: "Shared with other premises nearby",
+    support: "Standard business support, no guaranteed fix time",
+    fromPrice: "£39.95 a month",
   },
   {
     name: "Full fibre",
     technology: "FTTP. Sold as ultrafast.",
     bestFor:
-      "Most businesses. Fibre all the way to the building, with no copper left in the line.",
+      "Most businesses. The best balance of speed and cost, and the natural replacement for anything still on copper.",
     downloadMbps: "80 to 1,000",
     uploadMbps: "20 to 115",
-    fromPrice: "£39.99 a month",
+    delivery: "Fibre all the way into the building, no copper",
+    sharing: "Shared, but on a far higher capacity network",
+    support: "Business grade support",
   },
   {
     name: "Leased line",
     technology: "Dedicated fibre, the same speed both ways.",
     bestFor:
-      "Businesses that cannot afford to be offline. The line is yours alone, so the speed is guaranteed rather than shared.",
+      "Businesses that cannot afford to be offline, or that move large files and run everything in the cloud.",
     downloadMbps: "100 to 10,000",
     uploadMbps: "100 to 10,000",
+    delivery: "Dedicated fibre, straight from the network to you",
+    sharing: "Yours alone, never shared",
+    support: "99.9% uptime guarantee, faults fixed in 4 to 6 hours",
     fromPrice: "£275 a month",
   },
 ];
@@ -63,11 +78,14 @@ export const businessBroadband: ServiceContent = {
     "Full fibre, fibre to the cabinet and leased lines for businesses across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited data, free static IP and UK support.",
   heroImage,
   heroImageAlt: "Illustration of a business broadband connection",
-  /* Full fibre. Leased lines are priced separately on the speed cards. */
+  /*
+   * The cheapest connection we sell, which is fibre to the cabinet. Each tier
+   * carries its own price on the speed cards further down the page.
+   */
   fromPrice: {
-    amount: "£39.99",
+    amount: "£39.95",
     unit: "a month",
-    note: "Full fibre, on a lifetime price guarantee",
+    note: "Business broadband, on a lifetime price guarantee",
   },
   nutshell: [
     "We have partnered with the UK's leading, award-winning ISP. This gives us the best connectivity at very competitive prices. Plus full service provisioning and a comprehensive range of fault diagnostic tools, all available within our portal.",
@@ -163,6 +181,10 @@ export const businessBroadband: ServiceContent = {
         {
           kind: "paragraph",
           text: "A leased line is a direct fibre from your supplier to your premises. Usually you won't have to pay an installation cost, but the contract will be for a minimum of 36 months.",
+        },
+        {
+          kind: "paragraph",
+          text: "The speed is only half of it. A leased line is uncontended, so the bandwidth is yours alone and does not sag when the rest of the street comes online. It also carries a service level agreement: 24/7 monitoring, a 99.9% uptime guarantee and faults fixed within 4 to 6 hours, rather than the \"fixed when fixed\" you get on standard broadband.",
         },
       ],
     },

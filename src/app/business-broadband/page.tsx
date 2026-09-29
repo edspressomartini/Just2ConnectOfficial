@@ -55,6 +55,15 @@ export default function BusinessBroadbandPage() {
                 </div>
               </dl>
 
+              <dl className="speedCard__specs">
+                <dt className="speedCard__specLabel">Delivery</dt>
+                <dd className="speedCard__specValue">{tier.delivery}</dd>
+                <dt className="speedCard__specLabel">Sharing</dt>
+                <dd className="speedCard__specValue">{tier.sharing}</dd>
+                <dt className="speedCard__specLabel">Support</dt>
+                <dd className="speedCard__specValue">{tier.support}</dd>
+              </dl>
+
               <p className="speedCard__bestFor">{tier.bestFor}</p>
 
               {/*
