@@ -76,7 +76,7 @@ export const businessBroadband: ServiceContent = {
   strapline: ["Full Fibre", "Leased Lines", "Unlimited Support"],
   metaTitle: "Business Broadband in Hertfordshire",
   metaDescription:
-    "Full fibre, fibre to the cabinet and leased lines for businesses across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited data, free static IP and UK support.",
+    "Full fibre, fibre to the cabinet and leased lines for businesses across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited data, UK support.",
   heroImage,
   heroImageAlt: "Illustration of a business broadband connection",
   /*

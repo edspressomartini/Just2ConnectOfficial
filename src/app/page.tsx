@@ -17,7 +17,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata = buildPageMetadata({
   title: "Business Telephone Systems & Broadband in Hertfordshire",
   description:
-    "Local business telephone systems, VoIP and business broadband across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited support, 30 day contracts, no hidden costs.",
+    "Local business telephone systems, VoIP and broadband across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited support, 30 day contracts.",
   path: "/",
 });
 

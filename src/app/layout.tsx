@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: `%s | ${business.tradingName}`,
   },
   description:
-    "Business telephone systems, VoIP and business broadband in Hertfordshire, Bedfordshire and Buckinghamshire. Low-cost, flexible solutions with unlimited support.",
+    "Business telephone systems, VoIP and broadband in Hertfordshire, Bedfordshire and Buckinghamshire. Low-cost, flexible solutions with unlimited support.",
   openGraph: {
     siteName: business.tradingName,
     locale: "en_GB",
