@@ -61,12 +61,11 @@ export default function OpengraphImage() {
         width: "100%",
         height: "100%",
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        gap: 30,
-        padding: "0 80px",
-        textAlign: "center",
+        gap: 44,
+        padding: "0 70px",
         /*
          * Vertical rather than the diagonal this used to be. A 135deg wash
          * puts more colour on one side than the other, which reads as the
@@ -76,30 +75,57 @@ export default function OpengraphImage() {
         backgroundImage: "linear-gradient(180deg, #ffffff 0%, #e0e8fa 100%)",
       }}
     >
-      <img src={logo} alt="" width={400} height={226} />
-      {/* Sized to stay on one line: wrapping left a stranded "& Broadband". */}
+      <img src={logo} alt="" width={330} height={186} />
+
       <div
         style={{
           display: "flex",
-          fontSize: 46,
-          fontWeight: 700,
-          color: "#1f306d",
+          width: 2,
+          height: 260,
+          backgroundColor: "#c2137e",
         }}
-      >
-        Business Telephone Systems &amp; Broadband
-      </div>
-      <div style={{ display: "flex", fontSize: 32, color: "#3e4a56" }}>
-        {areas}
-      </div>
+      />
+
+      {/*
+       * Lines are written out rather than left to wrap, because the natural
+       * break strands "& Broadband" on a line of its own.
+       */}
       <div
         style={{
           display: "flex",
-          fontSize: 38,
-          fontWeight: 700,
-          color: "#c2137e",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: 18,
         }}
       >
-        {business.phone.display}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            fontSize: 42,
+            lineHeight: 1.2,
+            fontWeight: 700,
+            color: "#1f306d",
+          }}
+        >
+          <div style={{ display: "flex" }}>Business Telephone Systems</div>
+          <div style={{ display: "flex" }}>and Broadband</div>
+        </div>
+
+        <div style={{ display: "flex", fontSize: 27, color: "#3e4a56" }}>
+          {areas}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            fontSize: 36,
+            fontWeight: 700,
+            color: "#c2137e",
+          }}
+        >
+          {business.phone.display}
+        </div>
       </div>
     </div>,
     { ...size, fonts },
