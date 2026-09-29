@@ -5,14 +5,6 @@ import { sipTrunks } from "./sip-trunks";
 import { telephoneSystems } from "./telephone-systems";
 import { virtualPhoneNumbers } from "./virtual-phone-numbers";
 
-export {
-  businessBroadband,
-  businessMobileSim,
-  sipTrunks,
-  telephoneSystems,
-  virtualPhoneNumbers,
-};
-
 /** Services promoted in the header's primary navigation. */
 export const primaryServices: readonly ServiceContent[] = [
   telephoneSystems,
