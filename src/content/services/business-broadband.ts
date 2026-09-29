@@ -53,6 +53,7 @@ export const broadbandSpeedTiers: readonly BroadbandSpeedTier[] = [
     delivery: "Fibre all the way into the building, no copper",
     sharing: "Shared, but on a far higher capacity network",
     support: "Business grade support",
+    fromPrice: "£49.95 a month",
   },
   {
     name: "Leased line",
@@ -85,7 +86,7 @@ export const businessBroadband: ServiceContent = {
   fromPrice: {
     amount: "£39.95",
     unit: "a month",
-    note: "Business broadband, on a lifetime price guarantee",
+    note: "Fibre to the cabinet. Full fibre from £49.95 a month",
   },
   nutshell: [
     "We have partnered with the UK's leading, award-winning ISP. This gives us the best connectivity at very competitive prices. Plus full service provisioning and a comprehensive range of fault diagnostic tools, all available within our portal.",
@@ -105,16 +106,6 @@ export const businessBroadband: ServiceContent = {
     {
       title: "UK Support",
       description: "No scripts, just friendly experts when you need us.",
-    },
-    {
-      title: "Lifetime Price Guarantee",
-      description:
-        "At the end of your contract, we won't increase your price.",
-    },
-    {
-      title: "Phone Line Rental",
-      description:
-        "When you need it, combine broadband with line rental in one great value package.",
     },
     {
       title: "We'll Never Slow You Down",
