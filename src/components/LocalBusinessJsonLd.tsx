@@ -38,7 +38,7 @@ export function LocalBusinessJsonLd() {
         closes: business.openingHours.closes,
       },
     ],
-    sameAs: [business.social.linkedIn],
+    sameAs: [business.social.linkedIn, business.social.x],
   };
 
   return (

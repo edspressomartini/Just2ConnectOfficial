@@ -22,6 +22,13 @@ export interface PostalAddress {
 
 export interface SocialProfiles {
   readonly linkedIn: string;
+  /**
+   * Listed in structured data but not in the footer. It is a real account
+   * Google already associates with the business, so naming it helps Google
+   * tie the site to the Business Profile. Whether it is still posted to is a
+   * separate question, which is why it is not linked from the page.
+   */
+  readonly x: string;
 }
 
 export interface OpeningHours {
@@ -79,6 +86,7 @@ export const business: Business = {
   countiesServed: ["Hertfordshire", "Bedfordshire", "Buckinghamshire"],
   social: {
     linkedIn: "https://www.linkedin.com/company/just2connect-ltd/",
+    x: "https://x.com/just2connect",
   },
   openingHours: {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
