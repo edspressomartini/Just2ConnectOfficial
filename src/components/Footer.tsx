@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { CallLink } from "@/components/CallLink";
 import { business, mailtoHref } from "@/content/business";
+import { guideLinks } from "@/content/navigation";
 import { allServices } from "@/content/services";
 import emailIcon from "@/images/Footer/emailFooter.svg";
 import linkedInIcon from "@/images/Footer/linkedinFooter.svg";
@@ -81,6 +82,14 @@ export function Footer() {
                 <li key={service.slug}>
                   <Link href={`/${service.slug}`} className="footer__link">
                     {service.navLabel}
+                  </Link>
+                </li>
+              ))}
+
+              {guideLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="footer__link">
+                    {link.label}
                   </Link>
                 </li>
               ))}

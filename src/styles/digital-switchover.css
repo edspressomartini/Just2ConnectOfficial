@@ -1,0 +1,420 @@
+/*
+ * Campaign page for the 2027 PSTN switch-off. It is not a service page: the
+ * job is to get a stranger from "is this me?" to "yes, and here is what I do",
+ * so the sections are ordered as a diagnosis rather than as a sales pitch.
+ */
+
+/* Hero */
+.switchOffHero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+  text-align: center;
+  color: var(--colourTextDark);
+}
+
+.switchOffHero__eyebrow {
+  color: var(--colourPop);
+  font-size: 1.125rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-bottom: 16px;
+}
+
+.switchOffHero__title {
+  font-size: var(--pageTitleSize);
+  line-height: 1.1;
+}
+
+.switchOffHero__lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--colourTextGrey);
+  padding-top: 24px;
+}
+
+.switchOffHero__countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 32px auto 0;
+  padding: 24px 32px;
+  width: fit-content;
+  background-color: var(--colourBackWhite);
+  border-radius: 14px;
+  box-shadow: var(--shadowCard);
+}
+
+.switchOffHero__countdownNumber {
+  font-size: clamp(3rem, 9vw, 4.5rem);
+  font-weight: bold;
+  line-height: 1;
+  color: var(--colourPop);
+}
+
+.switchOffHero__countdownLabel {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--colourTextGrey);
+}
+
+.switchOffHero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 32px;
+}
+
+.switchOffButton {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: bold;
+  background-color: var(--colourPop);
+  color: var(--colourBackWhite);
+  border: 2px solid var(--colourPop);
+}
+
+.switchOffButton--ghost {
+  background-color: transparent;
+  color: var(--colourTextDark);
+  border-color: var(--colourTextDark);
+}
+
+/* The short version */
+.switchOffLede {
+  width: 80%;
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 40px 6%;
+  text-align: center;
+  color: var(--colourTextGrey);
+}
+
+.switchOffLede__heading {
+  font-size: var(--sectionTitleSize);
+  color: var(--colourTextDark);
+}
+
+.switchOffLede__text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .switchOffLede {
+    width: 92%;
+    padding: 32px 24px;
+  }
+}
+
+/* Three checks */
+.switchOffCheck__intro,
+.switchOffDevices__intro,
+.switchOffStatus__intro,
+.switchOffTimeline__intro {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 32px;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--colourTextGrey);
+}
+
+.switchOffCheck__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+@media screen and (min-width: 900px) {
+  .switchOffCheck__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.switchOffStep {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px 30px;
+  background-color: var(--colourBackWhite);
+  text-align: left;
+}
+
+.switchOffStep__number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--colourPop);
+  color: var(--colourBackWhite);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.switchOffStep__title {
+  font-size: 1.375rem;
+  color: var(--colourTextDark);
+  padding-top: 16px;
+}
+
+.switchOffStep__lead {
+  color: var(--colourTextGrey);
+  line-height: 1.6;
+  padding-top: 10px;
+}
+
+.switchOffStep__items {
+  list-style: none;
+  padding-top: 18px;
+  /* Pushes the verdict to the bottom so it lines up across the three cards. */
+  flex: 1;
+}
+
+.switchOffStep__item {
+  position: relative;
+  padding: 0 0 10px 26px;
+  color: var(--colourTextDark);
+  line-height: 1.5;
+}
+
+.switchOffStep__item::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--colourPop);
+}
+
+.switchOffStep__verdict {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background-color: var(--colourBackLilac);
+  color: var(--colourTextDark);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* Forgotten devices */
+.switchOffDevices {
+  padding-top: 40px;
+}
+
+.switchOffDevices__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px 40px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+@media screen and (min-width: 820px) {
+  .switchOffDevices__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.switchOffDevice {
+  border-left: 3px solid var(--colourPop);
+  padding-left: 18px;
+}
+
+.switchOffDevice__name {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--colourTextDark);
+}
+
+.switchOffDevice__note {
+  color: var(--colourTextGrey);
+  line-height: 1.6;
+  padding-top: 6px;
+}
+
+/*
+ * Stops / Changes / Unaffected. A list of rows rather than a table: the third
+ * column is a sentence, not a value, so a real table scrolled badly on a
+ * phone and gained nothing on a desktop.
+ */
+.switchOffStatus {
+  padding-top: 40px;
+}
+
+.switchOffStatus__list {
+  list-style: none;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.switchOffStatus__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--colourBackLilac);
+}
+
+@media screen and (min-width: 760px) {
+  .switchOffStatus__row {
+    grid-template-columns: 230px 120px minmax(0, 1fr);
+    gap: 24px;
+    align-items: baseline;
+  }
+}
+
+.switchOffStatus__service {
+  font-weight: bold;
+  color: var(--colourTextDark);
+}
+
+.switchOffStatus__badge {
+  justify-self: start;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.switchOffStatus__badge--stops {
+  background-color: var(--colourPop);
+  color: var(--colourBackWhite);
+}
+
+/* Outlined rather than filled: the page background is lilac, so a lilac pill
+ * had no edge and did not read as a badge at all. */
+.switchOffStatus__badge--changes {
+  background-color: var(--colourBackWhite);
+  color: var(--colourTextDark);
+  box-shadow: inset 0 0 0 2px var(--colourTextDark);
+}
+
+.switchOffStatus__badge--safe {
+  background-color: var(--colourTextDark);
+  color: var(--colourBackWhite);
+}
+
+.switchOffStatus__detail {
+  color: var(--colourTextGrey);
+  line-height: 1.6;
+}
+
+/* Doing nothing */
+.switchOffNothing {
+  width: 80%;
+  max-width: 900px;
+  margin: 80px auto 0;
+  padding: 40px 6%;
+  text-align: center;
+  color: var(--colourTextGrey);
+}
+
+.switchOffNothing__heading {
+  font-size: var(--sectionTitleSize);
+  color: var(--colourTextDark);
+}
+
+.switchOffNothing__text {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .switchOffNothing {
+    width: 92%;
+    padding: 32px 24px;
+  }
+}
+
+/* Timeline */
+.switchOffTimeline__list {
+  list-style: none;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 0 40px;
+}
+
+.switchOffTimeline__entry {
+  position: relative;
+  padding: 0 0 28px 28px;
+  /* Tinted navy rather than lilac: the page background is lilac, so the
+   * spine joining the entries was invisible. */
+  border-left: 2px solid rgba(31, 48, 109, 0.18);
+}
+
+.switchOffTimeline__entry:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+.switchOffTimeline__entry::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--colourPop);
+}
+
+.switchOffTimeline__date {
+  font-weight: bold;
+  color: var(--colourTextDark);
+}
+
+.switchOffTimeline__text {
+  color: var(--colourTextGrey);
+  line-height: 1.6;
+  padding-top: 6px;
+}
+
+/* Where to go next */
+.switchOffNext {
+  padding-bottom: 40px;
+}
+
+.switchOffNext__text {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--colourTextGrey);
+}
+
+.switchOffNext__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 28px;
+}
+
+.switchOffNext__link {
+  color: var(--colourPop);
+  font-weight: bold;
+}

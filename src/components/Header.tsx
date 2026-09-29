@@ -9,6 +9,7 @@ import { CallLink } from "@/components/CallLink";
 import { ChevronDownIcon } from "@/components/icons/ChevronDownIcon";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
 import { business } from "@/content/business";
+import { guideLinks } from "@/content/navigation";
 import { primaryServices, secondaryServices } from "@/content/services";
 import logo from "@/images/Just2Connect_Logo.svg";
 
@@ -155,6 +156,18 @@ export function Header() {
                       />
                     </li>
                   ))}
+
+                  {guideLinks.map((link) => (
+                    <li key={link.href}>
+                      <NavLink
+                        href={link.href}
+                        label={link.label}
+                        className="siteNav__menuLink"
+                        currentPath={pathname}
+                        onNavigate={closeNavigation}
+                      />
+                    </li>
+                  ))}
                 </ul>
               ) : null}
             </li>
@@ -254,6 +267,18 @@ export function Header() {
                 <NavLink
                   href={`/${service.slug}`}
                   label={service.navLabel}
+                  className="mobileNav__link"
+                  currentPath={pathname}
+                  onNavigate={closeNavigation}
+                />
+              </li>
+            ))}
+
+            {guideLinks.map((link) => (
+              <li key={link.href}>
+                <NavLink
+                  href={link.href}
+                  label={link.label}
                   className="mobileNav__link"
                   currentPath={pathname}
                   onNavigate={closeNavigation}

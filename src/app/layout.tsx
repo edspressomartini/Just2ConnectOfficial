@@ -21,6 +21,7 @@ import "@/styles/home.css";
 import "@/styles/logo-marquee.css";
 import "@/styles/credentials.css";
 import "@/styles/service-page.css";
+import "@/styles/digital-switchover.css";
 import "@/styles/contact.css";
 import "@/styles/about.css";
 import "@/styles/prose.css";
