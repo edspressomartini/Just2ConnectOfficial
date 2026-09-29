@@ -4,6 +4,7 @@ import { EnquirySection } from "@/components/EnquirySection";
 import { Credentials } from "@/components/Credentials";
 import { StatsStrip } from "@/components/StatsStrip";
 import { Col, Row } from "@/components/layout/Grid";
+import { business } from "@/content/business";
 import { people } from "@/content/people";
 import { buildPageMetadata } from "@/lib/metadata";
 
@@ -21,8 +22,8 @@ export default function AboutPage() {
         <h1 className="pageHeading">About Just2Connect</h1>
         <div className="aboutHero__text">
           <p>
-            Just2Connect have over <strong>40 years of experience</strong> in
-            providing telecom and broadband solutions to businesses. We
+            Just2Connect have provided telecom and broadband solutions to
+            businesses <strong>since {business.foundingYear}</strong>. We
             understand the importance of value for money and exceptional
             customer support.
           </p>
