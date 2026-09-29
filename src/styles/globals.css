@@ -11,6 +11,13 @@
   --colourBackGrey: #f5f7fd;
   --colourBackWhite: #ffffff;
   --shadowCard: 1px 1px 13px 10px #d6def0;
+  /*
+   * One size for every page title. The four pages had drifted to 4.5rem,
+   * 3.5rem and 3rem, which read as three different designs.
+   */
+  --pageTitleSize: clamp(2.25rem, 5.5vw, 3.75rem);
+  /* Likewise for every section heading, which spanned 2rem to 3rem. */
+  --sectionTitleSize: clamp(1.75rem, 4vw, 2.5rem);
   --headerHeight: 84px;
   --callBarHeight: 64px;
 }
@@ -104,13 +111,7 @@ textarea {
 }
 
 .pageHeading {
-  font-size: 3.5rem;
+  font-size: var(--pageTitleSize);
   color: var(--colourTextDark);
   line-height: 1.15;
-}
-
-@media screen and (max-width: 550px) {
-  .pageHeading {
-    font-size: 2.5rem;
-  }
 }

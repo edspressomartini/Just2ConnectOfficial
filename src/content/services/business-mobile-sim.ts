@@ -40,7 +40,7 @@ export const businessMobileSim: ServiceContent = {
       description: "SIMs available on EE, Vodafone or O2.",
     },
     {
-      title: "Simple To Provision",
+      title: "Simple to Provision",
       description:
         "Place an order and you'll be live within 24 hrs - often before.",
     },
@@ -49,7 +49,7 @@ export const businessMobileSim: ServiceContent = {
       description: "Transfer your existing mobile number at no cost.",
     },
     {
-      title: "2nd eSIM For Your Mobile",
+      title: "2nd eSIM for Your Mobile",
       description:
         "This gives you a second SIM option (for selected handsets).",
     },

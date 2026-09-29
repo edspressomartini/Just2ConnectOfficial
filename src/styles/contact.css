@@ -117,7 +117,7 @@
 }
 
 .clientSection__title {
-  font-size: 2rem;
+  font-size: var(--sectionTitleSize);
   color: var(--colourTextDark);
   text-align: center;
   /* The strapline below carries the lower half of the old padding. */

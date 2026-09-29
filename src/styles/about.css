@@ -44,7 +44,7 @@
 }
 
 .personSection__title {
-  font-size: 3rem;
+  font-size: var(--sectionTitleSize);
   text-align: center;
   padding: 5% 20px 30px;
   color: var(--colourTextDark);

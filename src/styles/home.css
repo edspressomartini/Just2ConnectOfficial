@@ -74,9 +74,7 @@
 }
 
 .homeHero__title {
-  letter-spacing: 2px;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: normal;
+  font-size: var(--pageTitleSize);
   line-height: 1.1;
 }
 
@@ -108,7 +106,9 @@
   border-radius: 20px;
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 200ms ease, color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .buttonPrimary {
@@ -143,10 +143,6 @@
   .homeHero__actions {
     justify-content: center;
   }
-
-  .homeHero__title {
-    font-size: 2.5rem;
-  }
 }
 
 /* Services */
@@ -165,7 +161,7 @@
 }
 
 .servicesSection__title {
-  font-size: 2.25rem;
+  font-size: var(--sectionTitleSize);
   color: var(--colourTextDark);
   text-align: center;
   letter-spacing: 1px;
@@ -287,7 +283,9 @@
   background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(1px);
   box-shadow: 0 0 5px 5px #cdd3e0;
-  transition: transform 200ms ease, color 200ms ease;
+  transition:
+    transform 200ms ease,
+    color 200ms ease;
 }
 
 .serviceCard__link:hover {
@@ -313,7 +311,7 @@
 }
 
 .welcomeSection__heading {
-  font-size: 2.2rem;
+  font-size: var(--sectionTitleSize);
   color: var(--colourTextDark);
 }
 
@@ -352,10 +350,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .welcomeSection__heading {
-    font-size: 1.8rem;
-  }
-
   .welcomeSection__subheading {
     font-size: 1.3rem;
   }
@@ -388,7 +382,7 @@
 }
 
 .whySection__title {
-  font-size: 2.25rem;
+  font-size: var(--sectionTitleSize);
   color: var(--colourTextDark);
   text-align: center;
   letter-spacing: 1px;
@@ -459,7 +453,7 @@
 }
 
 .testimonialSection__title {
-  font-size: 2.25rem;
+  font-size: var(--sectionTitleSize);
   color: var(--colourTextDark);
   text-align: center;
   letter-spacing: 1px;

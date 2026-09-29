@@ -168,7 +168,12 @@ export function Header() {
                 onNavigate={closeNavigation}
               />
             </li>
-            <li>
+            {/*
+              * Hidden once the button below appears. Between 992px and
+              * 1100px the bar has no room for the button, so the plain link
+              * keeps contact reachable at every width.
+              */}
+            <li className="siteNav__contactItem">
               <NavLink
                 href={CONTACT_PATH}
                 label="Contact"
@@ -179,6 +184,19 @@ export function Header() {
             </li>
           </ul>
         </nav>
+
+        {/*
+          * Contact as a button rather than a seventh nav link, so the bar
+          * gains a visible call to action without gaining width.
+          */}
+        <Link
+          href={CONTACT_PATH}
+          className="headerQuote"
+          aria-current={pathname === CONTACT_PATH ? "page" : undefined}
+          onClick={closeNavigation}
+        >
+          Get a quote
+        </Link>
 
         <CallLink source="header" className="headerCall">
           <PhoneIcon className="headerCall__icon" />
@@ -255,7 +273,7 @@ export function Header() {
             <li>
               <NavLink
                 href={CONTACT_PATH}
-                label="Contact"
+                label="Get a quote"
                 className="mobileNav__link"
                 currentPath={pathname}
                 onNavigate={closeNavigation}

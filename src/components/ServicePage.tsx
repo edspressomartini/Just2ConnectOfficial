@@ -82,9 +82,11 @@ export function ServicePage({ service, children }: ServicePageProps) {
 
       <Faq items={service.faqs} />
 
-      <EnquirySection
-        heading={`Interested in ${service.heading.toLowerCase()}?`}
-      />
+      {/*
+        * The heading is used as written rather than lowercased, because
+        * lowercasing turns SIM and eSIM into sim and esim.
+        */}
+      <EnquirySection heading={`Interested in ${service.heading}?`} />
     </>
   );
 }

@@ -136,6 +136,42 @@
 }
 
 /*
+ * Held back to 1100px rather than the 992px the nav appears at. Between the
+ * two the bar has no room for it, and the phone button gets pushed off the
+ * end. The mobile menu carries the link below that.
+ */
+.headerQuote {
+  display: none;
+}
+
+@media screen and (min-width: 1100px) {
+  .siteNav__contactItem {
+    display: none;
+  }
+
+  .headerQuote {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 12px;
+    padding: 10px 18px;
+    border: 2px solid var(--colourPop);
+    border-radius: 10px;
+    background-color: var(--colourPop);
+    color: var(--colourBackWhite);
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .headerQuote:hover {
+    background-color: var(--colourBackWhite);
+    color: var(--colourPop);
+  }
+}
+
+/*
  * Call to action. Always rendered, at every width. The previous build hid this
  * inside the collapsed mobile menu, which left phone visitors with no way to call.
  */

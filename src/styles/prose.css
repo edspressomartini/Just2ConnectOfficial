@@ -24,7 +24,7 @@
 
 .prosePage__title {
   color: var(--colourTextDark);
-  font-size: 3rem;
+  font-size: var(--pageTitleSize);
   text-align: center;
   padding-bottom: 16px;
 }

@@ -20,7 +20,7 @@ export const virtualPhoneNumbers: ServiceContent = {
       description: "Select an 01, 02, 03 or a freephone 0800 number.",
     },
     {
-      title: "Time Of Day Routing",
+      title: "Time of Day Routing",
       description:
         "Only receive calls when convenient to you. Out of hours, send them straight to your voicemail.",
     },
@@ -34,7 +34,7 @@ export const virtualPhoneNumbers: ServiceContent = {
         "Customise your business voicemail message and receive messages as an email attachment.",
     },
     {
-      title: "Fax To Email",
+      title: "Fax to Email",
       description:
         "Use an inbound number for a fax service. Faxes are sent as an email attachment.",
     },
