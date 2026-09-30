@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CallLink } from "@/components/CallLink";
+import { allAreas } from "@/content/areas";
 import { business, mailtoHref } from "@/content/business";
 import { guideLinks } from "@/content/navigation";
 import { allServices } from "@/content/services";
@@ -19,6 +20,21 @@ const companyLinks: readonly FooterLink[] = [
   { href: "/contact-us", label: "Contact Us" },
   { href: "/privacy-policy", label: "Privacy Policy" },
 ];
+
+/** Links the towns that have a page of their own, leaves the rest as text. */
+function TownName({ town }: { readonly town: string }) {
+  const area = allAreas.find((candidate) => candidate.town === town);
+
+  if (area === undefined) {
+    return town;
+  }
+
+  return (
+    <Link href={`/areas/${area.slug}`} className="footer__link">
+      {town}
+    </Link>
+  );
+}
 
 /** "Monday to Friday", from the days the business is actually open. */
 function openingDays(): string {
@@ -140,17 +156,22 @@ export function Footer() {
 
         <div className="footer__base">
           <p className="footer__areas">
-            Serving businesses across {business.townsServed.join(", ")} and the
-            surrounding areas.
+            Serving businesses across{" "}
+            {business.townsServed.map((town, index) => (
+              <span key={town}>
+                {index > 0 ? ", " : ""}
+                <TownName town={town} />
+              </span>
+            ))}{" "}
+            and the surrounding areas.
           </p>
 
           <p className="footer__legal">
             &copy; {year} {business.tradingName}. {business.legalName}, a
             company registered in England and Wales with company number{" "}
             {business.companyNumber}, registered office:{" "}
-            {business.address.streetAddress},{" "}
-            {business.address.addressLocality},{" "}
-            {business.address.addressRegion}, {business.address.postalCode}
+            {business.address.streetAddress}, {business.address.addressLocality}
+            , {business.address.addressRegion}, {business.address.postalCode}
           </p>
         </div>
       </footer>

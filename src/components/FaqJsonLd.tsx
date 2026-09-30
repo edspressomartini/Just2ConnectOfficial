@@ -1,7 +1,8 @@
-import type { FaqBlock, ServiceFaq } from "@/types/service-content";
+import type { ContentBlock } from "@/types/content-block";
+import type { ServiceFaq } from "@/types/service-content";
 
 /** Flattens an answer into the single plain-text string schema.org expects. */
-function answerText(blocks: readonly FaqBlock[]): string {
+function answerText(blocks: readonly ContentBlock[]): string {
   return blocks
     .map((block) =>
       block.kind === "list" ? block.items.join(". ") : block.text,

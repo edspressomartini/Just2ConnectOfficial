@@ -1,7 +1,8 @@
 import { ChevronDownIcon } from "@/components/icons/ChevronDownIcon";
-import type { FaqBlock, ServiceFaq } from "@/types/service-content";
+import type { ContentBlock } from "@/types/content-block";
+import type { ServiceFaq } from "@/types/service-content";
 
-function AnswerBlock({ block }: { readonly block: FaqBlock }) {
+function AnswerBlock({ block }: { readonly block: ContentBlock }) {
   if (block.kind === "list") {
     return (
       <ul>

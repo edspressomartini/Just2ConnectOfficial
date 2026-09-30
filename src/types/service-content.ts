@@ -1,22 +1,15 @@
 import type { StaticImageData } from "next/image";
 
+import type { ContentBlock } from "@/types/content-block";
+
 export interface ServiceFeature {
   readonly title: string;
   readonly description: string;
 }
 
-/**
- * FAQ answers are structured rather than raw JSX so the content files stay
- * plain data, which keeps them readable for non-developers and lets the same
- * answers feed FAQPage structured data later.
- */
-export type FaqBlock =
-  | { readonly kind: "paragraph"; readonly text: string }
-  | { readonly kind: "list"; readonly items: readonly string[] };
-
 export interface ServiceFaq {
   readonly question: string;
-  readonly answer: readonly FaqBlock[];
+  readonly answer: readonly ContentBlock[];
 }
 
 /**
