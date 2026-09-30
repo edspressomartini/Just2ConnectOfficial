@@ -2,6 +2,8 @@
 
 import { useSyncExternalStore } from "react";
 
+import { isAnalyticsConfigured } from "@/config/public-env";
+
 export enum ConsentStatus {
   /** No choice recorded yet. */
   UNKNOWN = "UNKNOWN",
@@ -96,4 +98,25 @@ export function useConsent(): ConsentState {
     grant: () => setStatus(ConsentStatus.GRANTED),
     deny: () => setStatus(ConsentStatus.DENIED),
   };
+}
+
+/**
+ * Whether the consent banner is currently on screen.
+ *
+ * The banner decides this for itself, but anything else pinned to the bottom
+ * of the screen has to get out of its way, so the answer lives here rather
+ * than being worked out twice and drifting apart.
+ */
+export function useIsConsentBannerVisible(): boolean {
+  const { status, isHydrated } = useConsent();
+
+  if (!isAnalyticsConfigured()) {
+    return false;
+  }
+
+  if (!isHydrated) {
+    return false;
+  }
+
+  return status === ConsentStatus.UNKNOWN;
 }

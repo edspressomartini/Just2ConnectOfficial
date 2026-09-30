@@ -2,22 +2,13 @@
 
 import Link from "next/link";
 
-import { isAnalyticsConfigured } from "@/config/public-env";
-import { ConsentStatus, useConsent } from "@/lib/consent";
+import { useConsent, useIsConsentBannerVisible } from "@/lib/consent";
 
 export function CookieConsent() {
-  const { status, isHydrated, grant, deny } = useConsent();
+  const { grant, deny } = useConsent();
+  const isVisible = useIsConsentBannerVisible();
 
-  // Nothing to consent to when analytics is not configured.
-  if (!isAnalyticsConfigured()) {
-    return null;
-  }
-
-  if (!isHydrated) {
-    return null;
-  }
-
-  if (status !== ConsentStatus.UNKNOWN) {
+  if (!isVisible) {
     return null;
   }
 
