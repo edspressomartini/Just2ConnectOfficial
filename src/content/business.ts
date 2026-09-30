@@ -97,3 +97,15 @@ export const business: Business = {
 
 export const telHref = `tel:${business.phone.e164}`;
 export const mailtoHref = `mailto:${business.email}`;
+
+/** Typed into the message box for the visitor, who can edit it before sending. */
+const WHATSAPP_GREETING =
+  "Hi Just2Connect, I would like to ask about business phones or broadband.";
+
+/*
+ * WhatsApp Business is registered to the landline rather than a mobile, so
+ * this derives from the one published number instead of introducing a second
+ * one to keep in step across the site, Google and the directories. `wa.me`
+ * wants the country code with no plus and no leading zero.
+ */
+export const whatsappHref = `https://wa.me/${business.phone.e164.replace("+", "")}?text=${encodeURIComponent(WHATSAPP_GREETING)}`;

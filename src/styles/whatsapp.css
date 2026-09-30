@@ -1,0 +1,63 @@
+/*
+ * Floating WhatsApp button.
+ *
+ * z-index sits between the mobile call bar (40) and the cookie banner (50).
+ * Above the bar so it is never buried, below the banner so consent is always
+ * the thing in front on a phone, where the two would otherwise overlap.
+ */
+.whatsappBubble {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 45;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(31, 48, 109, 0.28);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.whatsappBubble:hover,
+.whatsappBubble:focus-visible {
+  transform: scale(1.07);
+  box-shadow: 0 8px 22px rgba(31, 48, 109, 0.36);
+}
+
+.whatsappBubble__icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Clear of the fixed call bar, which occupies the bottom of every phone screen. */
+@media screen and (max-width: 767px) {
+  .whatsappBubble {
+    bottom: calc(var(--callBarHeight) + 16px);
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsappBubble__icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsappBubble {
+    transition: none;
+  }
+
+  .whatsappBubble:hover,
+  .whatsappBubble:focus-visible {
+    transform: none;
+  }
+}

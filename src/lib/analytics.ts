@@ -3,6 +3,8 @@ export enum AnalyticsEvent {
   GENERATE_LEAD = "generate_lead",
   /** A `tel:` link was activated. */
   CLICK_TO_CALL = "click_to_call",
+  /** A WhatsApp link was activated. */
+  CLICK_TO_WHATSAPP = "click_to_whatsapp",
 }
 
 export interface AnalyticsEventParams {

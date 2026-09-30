@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { MobileCallBar } from "@/components/MobileCallBar";
+import { WhatsAppBubble } from "@/components/WhatsAppBubble";
 import { AnalyticsGate } from "@/components/consent/AnalyticsGate";
 import { CookieConsent } from "@/components/consent/CookieConsent";
 import { business } from "@/content/business";
@@ -15,6 +16,7 @@ import "@/styles/grid.css";
 import "@/styles/header.css";
 import "@/styles/footer.css";
 import "@/styles/mobile-call-bar.css";
+import "@/styles/whatsapp.css";
 import "@/styles/contact-form.css";
 import "@/styles/cookie-consent.css";
 import "@/styles/home.css";
@@ -79,6 +81,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <MobileCallBar />
+        <WhatsAppBubble />
         <CookieConsent />
         <AnalyticsGate />
         <LocalBusinessJsonLd />
