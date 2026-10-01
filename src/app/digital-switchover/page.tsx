@@ -12,6 +12,7 @@ import {
   checkSteps,
   faqs,
   serviceStatuses,
+  shortVersion,
   timeline,
   type ServiceVerdict,
 } from "@/content/digital-switchover";
@@ -97,22 +98,11 @@ export default function DigitalSwitchoverPage() {
         <h2 id="lede-heading" className="switchOffLede__heading">
           The short version
         </h2>
-        <p className="switchOffLede__text">
-          BT Openreach is retiring the network that has carried UK phone calls
-          since the 1800s. It is not an upgrade offer and it is not something
-          you can opt out of: on {SWITCH_OFF_DATE_LABEL} the old lines are
-          turned off and the physical network starts being taken away. Anything
-          that relies on an analogue line stops working, including a lot of
-          things that are not phones.
-        </p>
-        <p className="switchOffLede__text">
-          The good news is that almost every business comes out of this paying
-          less than they did before, with a better service. The bad news is
-          timing. There are only so many engineers, and every business still on
-          copper needs one before the same deadline. The nearer that date gets,
-          the longer the wait for an appointment and the less say you have in
-          when it happens.
-        </p>
+        {shortVersion.map((paragraph) => (
+          <p key={paragraph} className="switchOffLede__text">
+            {paragraph}
+          </p>
+        ))}
       </section>
 
       <section className="switchOffCheck" aria-labelledby="check-heading">
@@ -211,11 +201,10 @@ export default function DigitalSwitchoverPage() {
         </p>
         <p className="switchOffNothing__text">
           That is a safety net, not a plan. EVAc is deliberately stripped back,
-          it is temporary, you cannot order it in advance, and it costs
-          providers £35 a month at wholesale before anyone adds a retail margin.
-          That is more than most of our customers pay for full fibre broadband.
-          You would still have to migrate afterwards, and by then you would be
-          doing it behind everyone else who also waited.
+          it is temporary, you cannot order it in advance, and it will cost you
+          more than £50 a month. That is more than most of our customers pay
+          for full fibre broadband. You would still have to migrate afterwards,
+          so it is better done sooner than later.
         </p>
       </section>
 

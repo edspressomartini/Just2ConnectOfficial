@@ -5,14 +5,32 @@ import type { ServiceFaq } from "@/types/service-content";
  *
  * Every figure here is from Openreach's own announcements rather than a
  * competitor's summary, because most pages on this subject repeat each other
- * and several of them are wrong. The two that are most often got wrong:
- * FTTC is not uniformly dead on the day, and nobody is cut off with no
- * warning, they land on EVAc. Check a source before editing either.
+ * and several of them are wrong. The three that are most often got wrong:
+ * the copper is not pulled out of the ground on the day and still carries
+ * broadband, the broadband products move rather than stop, and nobody is cut
+ * off with no warning, they land on EVAc. Check a source before editing any
+ * of them.
  */
 
 /** ISO date the PSTN closes. Used for the countdown and the JSON-LD. */
 export const SWITCH_OFF_ISO_DATE = "2027-01-31";
 export const SWITCH_OFF_DATE_LABEL = "31 January 2027";
+
+/**
+ * The opening explanation, in Terry's words.
+ *
+ * The distinction it draws is the one most pages on this subject miss: what
+ * stops is the voice service, not the copper. The copper stays and keeps
+ * carrying broadband, which is why the broadband products move rather than
+ * die. Getting that wrong pushes readers into upgrades they do not need.
+ */
+export const shortVersion: readonly string[] = [
+  `BT Openreach is retiring the network that has carried UK phone calls since the 1800s, which is the old copper lines in buildings. It is not an upgrade offer and it is not something you can opt out of: on ${SWITCH_OFF_DATE_LABEL} you will not be able to make or receive calls on your old copper lines. That service is called analogue telephony. Any other analogue service delivered down the same copper stops working too, including a lot of things that are not phones.`,
+  "Everything analogue, including your phone numbers, has to move to a digital service. The good news is that almost every business comes out of this paying less than they did before, with a better service. The bad news is timing. The longer you leave it, the more you pay each month for the copper line you already have, because Openreach is putting its price up steadily to push people onto digital.",
+  "The copper itself is not being taken away, though. It will still be used to deliver broadband. If your broadband is FTTC, VDSL, ADSL2+ or anything sold to you as Superfast, it runs over that copper, and it moves to a product called SOGEA that bundles the broadband and the line into one. That is an easy change: no new equipment, no engineer visit, just a call to your provider. The one thing to watch is that the phone service on the line ceases when you move, so if you want to keep the number you have to port it to a digital service at the same time.",
+  "If you already have full fibre there is less to it. You port your number to a digital service and the copper line ceases, because full fibre comes into the building on its own new cable.",
+  "The old copper line is becoming a technology of the past.",
+];
 
 export interface CheckStep {
   readonly title: string;
@@ -125,8 +143,19 @@ export interface ServiceStatus {
 /**
  * The myth-busting table. Plenty of pages imply everything copper dies on the
  * day, which is not true and costs their readers money in panic upgrades.
+ *
+ * Phone numbers come first and are marked as stopping, which reads harsher
+ * than the usual "do not worry, you keep your number". You only keep it if
+ * somebody ports it, so the reassuring version left readers with nothing to
+ * do, which is the one outcome that actually loses them the number.
  */
 export const serviceStatuses: readonly ServiceStatus[] = [
+  {
+    service: "Your phone numbers",
+    verdict: "Stops",
+    detail:
+      "Every number has to be ported to a digital service. Do that and you keep it, including the 01 and 0800 numbers you have had for years. Leave it, and it stops working.",
+  },
   {
     service: "Analogue phone lines",
     verdict: "Stops",
@@ -141,15 +170,15 @@ export const serviceStatuses: readonly ServiceStatus[] = [
   },
   {
     service: "ADSL broadband",
-    verdict: "Stops",
+    verdict: "Changes",
     detail:
-      "ADSL rides on top of an analogue line. Take the line away and the broadband goes with it.",
+      "Replaced by SOTAP, unless you can get SOGEA or full fibre, and both of those are better. If you make calls on the line as well, the number has to be ported to a digital service.",
   },
   {
     service: "FTTC broadband",
     verdict: "Changes",
     detail:
-      "Widely reported as dying on the day, which is not quite right. FTTC sold with a phone line has to move, because the line goes. The same connection without the line is SOGEA, and that carries on.",
+      "Widely reported as dying on the day, which is not right. It is replaced by SOGEA, unless you can get full fibre. Same connection, no new equipment and no engineer visit. If you make calls on the line as well, the number has to be ported to a digital service.",
   },
   {
     service: "SOGEA",
@@ -161,12 +190,6 @@ export const serviceStatuses: readonly ServiceStatus[] = [
     service: "Full fibre and leased lines",
     verdict: "Unaffected",
     detail: "No copper involved, so nothing to do.",
-  },
-  {
-    service: "Your phone numbers",
-    verdict: "Unaffected",
-    detail:
-      "You keep them. Numbers are ported across to the new service, including 01 and 0800 numbers you have had for years.",
   },
 ];
 
@@ -217,7 +240,7 @@ export const faqs: readonly ServiceFaq[] = [
       },
       {
         kind: "paragraph",
-        text: "It is not a solution, and it is not somewhere to sit. It is deliberately basic, it is temporary, you cannot order it in advance, and it costs providers £35 a month wholesale before anyone adds a retail margin. That is more than most businesses pay us for full fibre. You still have to migrate afterwards, only by then you are doing it in a queue.",
+        text: "That is a safety net, not a plan. EVAc is deliberately stripped back, it is temporary, you cannot order it in advance, and it will cost you more than £50 a month. That is more than most of our customers pay for full fibre broadband. You would still have to migrate afterwards, so it is better done sooner than later.",
       },
     ],
   },
@@ -226,11 +249,11 @@ export const faqs: readonly ServiceFaq[] = [
     answer: [
       {
         kind: "paragraph",
-        text: "Possibly, and it depends on something you cannot see from the router. If your broadband is ADSL, or FTTC sold alongside a line rental charge, there is an analogue line underneath it and that line is going.",
+        text: "Possibly, and it depends on something you cannot see from the router. If your broadband is ADSL or FTTC, it is delivered over a copper line. The broadband itself carries on, but it has to move onto a different product: FTTC becomes SOGEA, and ADSL becomes SOTAP where neither SOGEA nor full fibre can reach you.",
       },
       {
         kind: "paragraph",
-        text: "If it is SOGEA, which is the same connection without the phone line, or full fibre, you are already on the new world and there is nothing to do. Your bill will normally say which. If it does not, send it to us and we will tell you.",
+        text: "If you are already on SOGEA, which is the same connection without the phone line, or on full fibre, there is nothing to do. Your bill will normally say which. If it does not, send it to us and we will tell you.",
       },
     ],
   },
@@ -239,7 +262,11 @@ export const faqs: readonly ServiceFaq[] = [
     answer: [
       {
         kind: "paragraph",
-        text: "No. Numbers are ported to the new service, including the 01442 and 0800 numbers businesses have had on their vans and letterheads for twenty years. Porting is a standard process and the number is unchanged for anyone calling you.",
+        text: "Not if it is ported in time, and that is the part worth being clear about. Numbers are not carried over automatically. Somebody has to port yours to the digital service, and once that is done you keep it: the 01442 and 0800 numbers businesses have had on their vans and letterheads for twenty years all move across unchanged for anyone calling you.",
+      },
+      {
+        kind: "paragraph",
+        text: "Porting is a standard process and we do it as part of the move. What you cannot do is leave the number on a line that has been switched off and expect to pick it up later.",
       },
     ],
   },
