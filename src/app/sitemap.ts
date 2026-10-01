@@ -13,6 +13,7 @@ interface SitemapRoute {
 const staticRoutes: readonly SitemapRoute[] = [
   { path: "/", priority: 1, changeFrequency: "monthly" },
   { path: "/digital-switchover", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/areas", priority: 0.7, changeFrequency: "monthly" },
   { path: "/about-us", priority: 0.6, changeFrequency: "yearly" },
   { path: "/contact-us", priority: 0.9, changeFrequency: "yearly" },
   { path: "/privacy-policy", priority: 0.1, changeFrequency: "yearly" },

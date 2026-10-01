@@ -122,6 +122,70 @@
   padding-top: 16px;
 }
 
+/*
+ * Index of towns. Each card leads with the town's own strapline rather than a
+ * generic blurb, so the index itself shows the pages differ.
+ */
+.areaGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 0;
+}
+
+.areaGrid__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+@media screen and (min-width: 700px) {
+  .areaGrid__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .areaGrid__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.areaCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 28px 26px;
+  background-color: var(--colourBackWhite);
+  border-radius: 14px;
+  box-shadow: var(--shadowCard);
+}
+
+.areaCard__town {
+  font-size: 1.375rem;
+  color: var(--colourTextDark);
+}
+
+.areaCard__strapline {
+  color: var(--colourTextGrey);
+  font-size: 1rem;
+  line-height: 1.6;
+  /* Pushes the link to the bottom so it lines up across the cards. */
+  flex: 1;
+}
+
+.areaCard__link {
+  color: var(--colourPop);
+  font-weight: bold;
+}
+
+.areaAlso {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 20px 0;
+}
+
 /* Where to go next */
 .areaLinks {
   max-width: 760px;

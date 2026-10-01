@@ -17,6 +17,7 @@ interface FooterLink {
 
 const companyLinks: readonly FooterLink[] = [
   { href: "/about-us", label: "Company Information" },
+  { href: "/areas", label: "Areas We Cover" },
   { href: "/contact-us", label: "Contact Us" },
   { href: "/privacy-policy", label: "Privacy Policy" },
 ];
