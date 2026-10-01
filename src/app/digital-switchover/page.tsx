@@ -58,7 +58,7 @@ export default function DigitalSwitchoverPage() {
       <section className="switchOffHero">
         <p className="switchOffHero__eyebrow">The digital switchover</p>
         <h1 className="switchOffHero__title">
-          Every analogue phone line in the UK is switched off on{" "}
+          Every analogue phone line in the UK will be switched off on{" "}
           {SWITCH_OFF_DATE_LABEL}
         </h1>
         <p className="switchOffHero__lead">
@@ -98,18 +98,20 @@ export default function DigitalSwitchoverPage() {
           The short version
         </h2>
         <p className="switchOffLede__text">
-          BT is retiring the network that has carried UK phone calls since the
-          1800s. It is not an upgrade offer and it is not something you can opt
-          out of: on {SWITCH_OFF_DATE_LABEL} the old lines are turned off and
-          the physical network starts being taken away. Anything that relies on
-          an analogue line stops working, including a lot of things that are not
-          phones.
+          BT Openreach is retiring the network that has carried UK phone calls
+          since the 1800s. It is not an upgrade offer and it is not something
+          you can opt out of: on {SWITCH_OFF_DATE_LABEL} the old lines are
+          turned off and the physical network starts being taken away. Anything
+          that relies on an analogue line stops working, including a lot of
+          things that are not phones.
         </p>
         <p className="switchOffLede__text">
           The good news is that almost every business comes out of this paying
-          less than they did before, with a better service. The bad news is that
-          everyone still on copper has to go through the same engineers before
-          the same date.
+          less than they did before, with a better service. The bad news is
+          timing. There are only so many engineers, and every business still on
+          copper needs one before the same deadline. The nearer that date gets,
+          the longer the wait for an appointment and the less say you have in
+          when it happens.
         </p>
       </section>
 

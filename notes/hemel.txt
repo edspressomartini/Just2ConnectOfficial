@@ -1,0 +1,15 @@
+Hemel Hempstead is currently experiencing a major change in it telecommunications
+landscape, with the change to digital phone services and the installation of full fibre
+internet services.
+However, the latest industry metrics show a low take-up of these services.
+Openreach estimate that they can reach 77% of properties with their FTTP
+infrastructure.
+There have been a number of initiatives from BT Openreach and Dacorum Borough
+Council to host roadshows and forums to explain what businesses need to do to
+make themselves ready for the digital switchover.
+There are a number of trends within businesses that readily lend themselves to the
+adoption of digital telephony.
+ Integrations of the business phone system with VCRM systems
+ Integration of AI into the phone system to handle calls
+ Accommodating working from home, so that all employees whether in the
+office or at home remain part of the office phone system

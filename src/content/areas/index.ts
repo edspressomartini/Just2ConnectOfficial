@@ -1,4 +1,9 @@
 import { berkhamsted } from "@/content/areas/berkhamsted";
+import { hemelHempstead } from "@/content/areas/hemel-hempstead";
+import { luton } from "@/content/areas/luton";
+import { stAlbans } from "@/content/areas/st-albans";
+import { tring } from "@/content/areas/tring";
+import { watford } from "@/content/areas/watford";
 import type { AreaContent } from "@/types/area-content";
 
 /*
@@ -6,4 +11,11 @@ import type { AreaContent } from "@/types/area-content";
  * deliberately has no page: a town page with nothing local in it is a doorway
  * page, and one of those would drag the others down with it.
  */
-export const allAreas: readonly AreaContent[] = [berkhamsted];
+export const allAreas: readonly AreaContent[] = [
+  berkhamsted,
+  hemelHempstead,
+  luton,
+  stAlbans,
+  tring,
+  watford,
+];

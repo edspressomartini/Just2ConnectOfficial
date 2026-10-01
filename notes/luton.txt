@@ -1,0 +1,18 @@
+Luton has areas that aren’t well served by broadband, but all areas have total access
+to digital telephony.
+One of our clients, High Flying Food, on the periphery of Luton Airport is surprisingly
+poorly served by broadband. They can only get the equivalent of standard ADSL2+
+(now called SOTAP) – no FTTC or FTTP.
+They need both digital telephony connection and good broadband. To solve their
+issue, we have installed a Starlink satellite system. It is remarkably easy to install
+and monthly subscription costs are cost effective. Broadband speed is approx.
+250Mbps – so very fast.
+Digital telephony needs broadband that has low latency (below 100ms). Starlink is
+able to deliver on this metric and provides a great solution.
+Another client, Chiltern Doors, recently wanted to move offices and migrate their
+digital telephone numbers with them. This is one of the unexpected benefits of such
+telephony, as they are location independent. After we had provisioned broadband
+into their new offices, they just had to unplug their phones, take them to the new
+showroom, and just plug them in – they were back up and running immediately.
+We are within 20 minutes or less of Luton and if our telephony support can’t solve
+the problem, it is quick and easy for us to get to the clients site.

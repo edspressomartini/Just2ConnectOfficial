@@ -1,0 +1,13 @@
+Every analogue phone line in the UK is switched off on 31 January 2027 - change to: Every analogue phone line in the UK will be switched off on 31 January 2027
+
+The short version:
+
+Start with BT/Openreach
+
+end of this paragraph: 'has to go through the same engineers before the same date’ - don’t understand what this means? 
+
+Column 2 - Walk the Building. Can we amend the call to action at the end of the column to read: ‘and you don’t know what it is, send it to us and we will check it out ‘
+
+Column 3 - Check the socket. Can we amend the call to action at the end of the column to read: ‘We will check it out for you, and we won’t charge you for this service’
+
+Need to do some more work on the ‘What stops, what changes, section:

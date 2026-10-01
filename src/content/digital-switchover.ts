@@ -52,7 +52,7 @@ export const checkSteps: readonly CheckStep[] = [
       "Anywhere a wire goes into the wall and nobody knows why",
     ],
     verdict:
-      "Take a photo of anything you find, including the labels. If it has a phone number on it and you cannot say what it is for, put it on the list.",
+      "Take a photo of anything you find, including the labels. If it has a phone number on it and you do not know what it is, send it to us and we will check it out.",
   },
   {
     title: "Check the socket",
@@ -64,7 +64,7 @@ export const checkSteps: readonly CheckStep[] = [
       "A handset on a base station, or a headset plugged into a computer, is already digital and is fine",
     ],
     verdict:
-      "If you are still not sure, take a photo of the socket and the back of the phone and send it to us. We will tell you which it is, and there is no charge for answering.",
+      "If you are still not sure, take a photo of the socket and the back of the phone and send it to us. We will check it out for you, and we will not charge you for this service.",
   },
 ];
 
