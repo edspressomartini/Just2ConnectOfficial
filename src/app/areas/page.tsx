@@ -5,6 +5,7 @@ import { CallLink } from "@/components/CallLink";
 import { EnquirySection } from "@/components/EnquirySection";
 import { allAreas } from "@/content/areas";
 import { business } from "@/content/business";
+import { exchangeStatuses } from "@/content/exchange-status";
 import { buildPageMetadata } from "@/lib/metadata";
 
 const PATH = "/areas";
@@ -77,6 +78,64 @@ export default function AreasPage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="areaSection" aria-labelledby="exchange-heading">
+        <h2 id="exchange-heading" className="areaSection__heading">
+          Which exchanges have already stopped selling copper
+        </h2>
+        <p className="areaSection__text">
+          Long before the 2027 deadline, Openreach switches individual
+          exchanges to full fibre only. Once that happens you can carry on with
+          what you have, but you cannot re-sign, change speed, restart a
+          cancelled line, or move to a cheaper provider without moving to full
+          fibre at the same time. Shopping around is itself what catches most
+          businesses out.
+        </p>
+        <p className="areaSection__text">
+          These are the exchanges covering the towns we work in, checked
+          against Openreach&apos;s own stop-sell register.
+        </p>
+
+        <div className="exchangeTable__scroll">
+          <table className="exchangeTable">
+            <caption className="exchangeTable__caption">
+              Openreach stop-sell status by exchange
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Town</th>
+                <th scope="col">Exchange</th>
+                <th scope="col">Where it stands</th>
+              </tr>
+            </thead>
+            <tbody>
+              {exchangeStatuses.map((entry) => (
+                <tr key={entry.code}>
+                  <th scope="row">{entry.town}</th>
+                  {/*
+                    * Most exchanges are named after their town, so repeating
+                    * the name in both columns reads as a mistake. Only the
+                    * ones that differ, like Bowmansgreen, are worth printing.
+                    */}
+                  <td>
+                    {entry.exchange === entry.town ? null : `${entry.exchange} `}
+                    <span className="exchangeTable__code">{entry.code}</span>
+                  </td>
+                  <td>{entry.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p className="areaSection__text">
+          One thing worth being clear about, because it is widely got wrong: a
+          stop-sell applies building by building, not across the whole town. It
+          only bites where full fibre has actually reached your premises. Where
+          it has not, the older services are all still available. Nobody has
+          had their town switched off.
+        </p>
       </section>
 
       {remaining.length === 0 ? null : (

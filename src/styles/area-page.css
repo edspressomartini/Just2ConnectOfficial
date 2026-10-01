@@ -180,6 +180,69 @@
   font-weight: bold;
 }
 
+/*
+ * Stop-sell table. Allowed to scroll sideways on a phone rather than wrap to
+ * an unreadable width, since the dates are the point and they have to stay on
+ * one line to be scannable.
+ */
+.exchangeTable__scroll {
+  overflow-x: auto;
+  margin: 24px 0 24px;
+}
+
+.exchangeTable {
+  width: 100%;
+  min-width: 540px;
+  border-collapse: collapse;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.exchangeTable__caption {
+  /* Named for screen readers; the heading above already says it on screen. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.exchangeTable thead th {
+  padding: 12px 16px;
+  background-color: var(--colourPop);
+  color: var(--colourBackWhite);
+  font-size: 0.9375rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.exchangeTable tbody th,
+.exchangeTable tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.exchangeTable tbody th {
+  color: var(--colourTextDark);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.exchangeTable tbody td {
+  color: var(--colourTextGrey);
+}
+
+.exchangeTable__code {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: var(--colourTextDark);
+  opacity: 0.7;
+}
+
 .areaAlso {
   max-width: 760px;
   margin: 0 auto;
