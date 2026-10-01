@@ -265,7 +265,7 @@ export const faqs: readonly ServiceFaq[] = [
       },
       {
         kind: "paragraph",
-        text: "The caveat is engineering capacity. Everyone still on copper has to move through the same engineers before the same date, so the closer to the deadline you leave it, the longer the wait and the less choice you have.",
+        text: "The caveat is how many engineers there are. Every business still on copper needs one before the same deadline, and there is a limit to how many jobs can be done in a week. The closer to the date you leave it, the longer you wait for an appointment and the less say you have in when it falls.",
       },
     ],
   },
