@@ -1,4 +1,5 @@
 import { berkhamsted } from "@/content/areas/berkhamsted";
+import { harpenden } from "@/content/areas/harpenden";
 import { hemelHempstead } from "@/content/areas/hemel-hempstead";
 import { luton } from "@/content/areas/luton";
 import { stAlbans } from "@/content/areas/st-albans";
@@ -13,6 +14,7 @@ import type { AreaContent } from "@/types/area-content";
  */
 export const allAreas: readonly AreaContent[] = [
   berkhamsted,
+  harpenden,
   hemelHempstead,
   luton,
   stAlbans,

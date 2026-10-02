@@ -28,6 +28,13 @@ export const exchangeStatuses: readonly ExchangeStatus[] = [
       "Not a priority exchange. Openreach started building full fibre here in November 2025, so this will change.",
   },
   {
+    town: "Harpenden",
+    exchange: "Harpenden",
+    code: "SMHR",
+    status:
+      "Not a priority exchange, so no early restriction here. Openreach is building full fibre, and CityFibre has already built.",
+  },
+  {
     town: "Hemel Hempstead",
     exchange: "Hemel Hempstead",
     code: "SMHH",

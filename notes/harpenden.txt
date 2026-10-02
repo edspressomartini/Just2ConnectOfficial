@@ -1,0 +1,23 @@
+Harpenden is one of Hertfordshire's premier towns. It has an affluent demographic,
+great connectivity to London and many boutique commercial enterprises.
+Nonetheless, it still has need for fast broadband and resilient digital telephony.
+This is where Just2Connect is playing a significant role in upgrading both broadband
+and telephony infrastructure.
+Just2Connect acts as a 'whole of market' supplier, meaning that we can take the
+best from the many broadband infrastructure providers, including Openreach and
+CityFibre, to deliver the fastest and most cost-effective service to businesses.
+
+We have recently been upgrading clients from the traditional FTTC broadband that
+uses old copper line infrastructure, to the latest Full Fibre (FTTP) service.
+Typically, we have already moved these clients across to digital telephony, so it has
+been straight forward to migrate their broadband to FTTP.
+One of the other factors that is often neglected when moving to digital telephony is
+that handsets need to be connected to the internet - this can be done via ethernet
+cabling or WiFi.
+Just2Connect has years of experience providing structured cabling in offices -
+whether this is just a couple of ethernet points or a complete digital fit-out. This
+enables us to seamlessly move clients from the old to the new technologies.
+Harpenden Golf Club are a prime example of how we can assist clients in migrating
+to the new technological landscape. Whilst they were expanding the clubhouse, we
+installed ethernet cabling to all parts of the building to enable us to move them
+across to digital telephony at the same time - they were years ahead of the game!
