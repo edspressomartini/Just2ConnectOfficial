@@ -438,3 +438,84 @@
   align-items: center;
   justify-content: center;
 }
+
+/*
+ * Add-ons: things you can buy on top of the standard package. Two columns at
+ * desktop like the feature grid, but with room for a couple of paragraphs
+ * each, because each one has to describe a problem before it sells the fix.
+ */
+.addOnSection {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.addOnList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+@media screen and (min-width: 820px) {
+  .addOnList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.addOn {
+  padding: 28px 30px;
+}
+
+.addOn__title {
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: var(--colourTextDark);
+  padding-bottom: 14px;
+}
+
+.addOn__text {
+  color: var(--colourTextGrey);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.addOn__text + .addOn__text {
+  padding-top: 14px;
+}
+
+/*
+ * Failover. Deliberately a single narrow column rather than a card grid: it
+ * is answering one question, and the answer reads as more considered when it
+ * is not competing with anything beside it.
+ */
+.resilienceSection {
+  max-width: 820px;
+  margin: 0 auto 40px;
+  padding: 36px 6%;
+}
+
+.resilienceSection__heading {
+  font-size: var(--sectionTitleSize);
+  color: var(--colourTextDark);
+  padding-bottom: 18px;
+}
+
+.resilienceSection__text {
+  color: var(--colourTextGrey);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.resilienceSection__text + .resilienceSection__text {
+  padding-top: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .resilienceSection {
+    width: 92%;
+    padding: 28px 24px;
+  }
+}

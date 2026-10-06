@@ -1,4 +1,5 @@
 import heroImage from "@/images/ProductPage/broadbandHero.svg";
+import type { ContentBlock } from "@/types/content-block";
 import type { ServiceContent } from "@/types/service-content";
 
 export interface BroadbandSpeedTier {
@@ -68,6 +69,31 @@ export const broadbandSpeedTiers: readonly BroadbandSpeedTier[] = [
     fromPrice: "£275 a month",
   },
 ];
+
+/**
+ * The failover section.
+ *
+ * This is the answer to the objection that sits behind every other thing we
+ * sell: once the phones run over broadband, a broadband fault silences the
+ * business. It is the main reason people hold on to copper, so the page says
+ * so plainly rather than waiting to be asked.
+ */
+export const broadbandResilience: {
+  readonly heading: string;
+  readonly body: readonly ContentBlock[];
+} = {
+  heading: "What happens when the internet goes down?",
+  body: [
+    {
+      kind: "paragraph",
+      text: "Every business's worst nightmare, and the question worth asking before you move your phones onto your broadband. How do you stop the business going silent?",
+    },
+    {
+      kind: "paragraph",
+      text: "The answer is our resilient broadband solution, Assure-X. It is an automatic failover system that takes over the moment your main broadband service goes down. It keeps the same IP address, so none of your critical systems that rely on IP authentication fail with it.",
+    },
+  ],
+};
 
 export const businessBroadband: ServiceContent = {
   slug: "business-broadband",

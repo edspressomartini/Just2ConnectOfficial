@@ -20,11 +20,12 @@ export const telephoneSystems: ServiceContent = {
   nutshell: [
     "Cloud telephone systems have an array of benefits for businesses of all sizes. Moving a traditional telephone system to the cloud is a cost effective alternative for any business, and maintenance expenses will be a thing of the past.",
   ],
+  featuresHeading: "Included as Standard",
   features: [
     {
       title: "Reliability",
       description:
-        "Reliability is a key part of any service, that's why we built our network with critical failover points across multiple data centres.",
+        "Reliability is key, so the service is built with critical failover points across multiple data centres.",
     },
     {
       title: "Feature Rich",
@@ -34,29 +35,60 @@ export const telephoneSystems: ServiceContent = {
     {
       title: "Latest Handsets",
       description:
-        "We supply the latest Grandstream, Polycom, Gigaset, Yealink and Cisco handsets - fully configured and ready to use.",
+        "We supply the latest Grandstream, Polycom, Gigaset, Yealink and Cisco handsets, fully configured and ready to use.",
     },
     {
-      title: "Customisable",
+      title: "Softphone on Computer",
       description:
-        "All services are configured through our portal. Whether via us, or yourself, there is multilevel access so we are always in full control.",
+        "Take your calls in a browser softphone. Nothing to install, works on all computers, and no handset required.",
     },
     {
-      title: "Online Provisioning",
+      title: "Mobile App",
       description:
-        "Having the ability to provision a service via a user portal is not only more efficient, but also reduces the chance of human error.",
-    },
-    {
-      title: "Desktop App",
-      description:
-        "Otherwise known as a softphone, use your laptop, tablet or mobile as your office extension.",
+        "The X-Pro app mirrors your desk phone extension on your mobile, so you can make and receive calls wherever you are. Calls out present your business number.",
     },
     {
       title: "Call Recording",
       description:
         "You have the ability to record all incoming and/or outgoing calls, on any extensions.",
     },
+    {
+      title: "Online Provisioning",
+      description:
+        "Changes are made through the portal rather than raised as a ticket, so adding a user or redirecting a number happens the same day.",
+    },
   ],
+  addOns: {
+    heading: "What can I add to make my system even more productive?",
+    items: [
+      {
+        title: "Professional Music on Hold, IVR Announcements and Voicemail",
+        body: [
+          {
+            kind: "paragraph",
+            text: "Let's face it, nobody likes recording these messages in their own voice. Imagine being able to produce broadcast-quality audio in minutes instead. Select a voice, type what you want it to say, and the text-to-speech function returns the audio file in seconds.",
+          },
+          {
+            kind: "paragraph",
+            text: "No more rushed messages at Christmas, over the New Year, or on a company training day. It will also record product promotions and announcements, so there is no dead air while callers wait to be connected.",
+          },
+        ],
+      },
+      {
+        title: "AI Call Transcription",
+        body: [
+          {
+            kind: "paragraph",
+            text: "In the current climate it matters that you and your team do not miss a buying signal, or, more importantly, somebody telling you they want to cancel.",
+          },
+          {
+            kind: "paragraph",
+            text: "You decide what the system listens out for, and it emails you an alert as soon as those words are said on a call. It doubles as a training aid, because you can see what works on a call rather than guess at it, and improve your team's effectiveness from there.",
+          },
+        ],
+      },
+    ],
+  },
   faqs: [
     {
       question: "What is VoIP | Hosted PBX | Cloud Telephony?",

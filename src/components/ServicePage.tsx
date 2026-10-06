@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { EnquirySection } from "@/components/EnquirySection";
 import { Faq } from "@/components/Faq";
+import { ContentBlocks } from "@/components/ContentBlocks";
 import { FeatureGrid } from "@/components/FeatureGrid";
 import { Col, Row } from "@/components/layout/Grid";
 import type { ServiceContent } from "@/types/service-content";
@@ -76,7 +77,30 @@ export function ServicePage({ service, children }: ServicePageProps) {
         ))}
       </section>
 
-      <FeatureGrid features={service.features} />
+      <FeatureGrid
+        features={service.features}
+        title={service.featuresHeading}
+      />
+
+      {service.addOns === undefined ? null : (
+        <section className="addOnSection" aria-labelledby="addons-heading">
+          <h2 id="addons-heading" className="sectionTitle">
+            {service.addOns.heading}
+          </h2>
+
+          <ul className="addOnList">
+            {service.addOns.items.map((addOn) => (
+              <li key={addOn.title} className="addOn panel">
+                <h3 className="addOn__title">{addOn.title}</h3>
+                <ContentBlocks
+                  blocks={addOn.body}
+                  paragraphClassName="addOn__text"
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {children}
 

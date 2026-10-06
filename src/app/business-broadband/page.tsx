@@ -1,7 +1,9 @@
 import Image from "next/image";
 
+import { ContentBlocks } from "@/components/ContentBlocks";
 import { ServicePage } from "@/components/ServicePage";
 import {
+  broadbandResilience,
   broadbandSpeedTiers,
   businessBroadband,
 } from "@/content/services/business-broadband";
@@ -78,6 +80,19 @@ export default function BusinessBroadbandPage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section
+        className="resilienceSection panel"
+        aria-labelledby="resilience-heading"
+      >
+        <h2 id="resilience-heading" className="resilienceSection__heading">
+          {broadbandResilience.heading}
+        </h2>
+        <ContentBlocks
+          blocks={broadbandResilience.body}
+          paragraphClassName="resilienceSection__text"
+        />
       </section>
     </ServicePage>
   );
