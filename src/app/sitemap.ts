@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { allAreas } from "@/content/areas";
 import { business } from "@/content/business";
+import { pageLastModified } from "@/content/last-modified";
 import { allServices } from "@/content/services";
 
 interface SitemapRoute {
@@ -19,26 +20,42 @@ const staticRoutes: readonly SitemapRoute[] = [
   { path: "/privacy-policy", priority: 0.1, changeFrequency: "yearly" },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+/**
+ * The day the page at `path` last changed.
+ *
+ * Throws rather than defaulting, because a missing date silently became
+ * "today" in the previous version of this file, which is exactly the
+ * inaccuracy that makes Google stop trusting `lastmod` altogether. Failing the
+ * build is noisy, but it is noise at the only moment anyone can act on it.
+ */
+function lastModifiedFor(path: string): string {
+  const entry = pageLastModified.find((page) => page.path === path);
+  if (!entry) {
+    throw new Error(
+      `No last-modified date for "${path}". Add one to src/content/last-modified.ts.`,
+    );
+  }
+  return entry.date;
+}
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const serviceEntries = allServices.map((service) => ({
     url: `${business.siteUrl}/${service.slug}`,
-    lastModified,
+    lastModified: lastModifiedFor(`/${service.slug}`),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
   const areaEntries = allAreas.map((area) => ({
     url: `${business.siteUrl}/areas/${area.slug}`,
-    lastModified,
+    lastModified: lastModifiedFor(`/areas/${area.slug}`),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
   const staticEntries = staticRoutes.map((route) => ({
     url: `${business.siteUrl}${route.path}`,
-    lastModified,
+    lastModified: lastModifiedFor(route.path),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
