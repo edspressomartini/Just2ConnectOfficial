@@ -9,7 +9,7 @@ import type { AreaContent } from "@/types/area-content";
 export const berkhamsted: AreaContent = {
   slug: "berkhamsted",
   town: "Berkhamsted",
-  metaTitle: "Business Broadband and Phone Systems in Berkhamsted",
+  metaTitle: "Telephone Systems & Broadband in Berkhamsted",
   metaDescription:
     "Full fibre broadband and digital phone systems for Berkhamsted businesses, on the High Street and Northbridge Road. On site in about 20 minutes.",
   heading: "Business Broadband and Telephone Systems in Berkhamsted",

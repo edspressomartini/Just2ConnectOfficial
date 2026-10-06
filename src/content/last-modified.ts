@@ -9,9 +9,11 @@
  *
  * These dates are therefore hand-maintained and must stay honest. The rule is
  * narrow: update the date when the words on the page change in a way a reader
- * would notice. Fixing a typo, restyling a card or renaming a CSS class is not
- * a content change and should not touch this file. Inflating the dates to look
- * busy puts us straight back where we started.
+ * would notice, and that includes the title and description, since those are
+ * the first words anyone reads in a search result. Fixing a typo, restyling a
+ * card or renaming a CSS class is not a content change and should not touch
+ * this file. Inflating the dates to look busy puts us straight back where we
+ * started.
  *
  * Adding a page without adding a date here fails the build rather than
  * silently falling back to "now", which is how the original bug survived.
@@ -38,11 +40,11 @@ export const pageLastModified: readonly PageLastModified[] = [
   { path: "/virtual-phone-numbers", date: "2026-09-29" },
   { path: "/business-mobile-sim", date: "2026-09-29" },
 
-  { path: "/areas/berkhamsted", date: "2026-09-30" },
-  { path: "/areas/harpenden", date: "2026-10-02" },
-  { path: "/areas/hemel-hempstead", date: "2026-10-01" },
-  { path: "/areas/luton", date: "2026-10-01" },
-  { path: "/areas/st-albans", date: "2026-10-01" },
-  { path: "/areas/tring", date: "2026-10-01" },
-  { path: "/areas/watford", date: "2026-10-01" },
+  { path: "/areas/berkhamsted", date: "2026-10-06" },
+  { path: "/areas/harpenden", date: "2026-10-06" },
+  { path: "/areas/hemel-hempstead", date: "2026-10-06" },
+  { path: "/areas/luton", date: "2026-10-06" },
+  { path: "/areas/st-albans", date: "2026-10-06" },
+  { path: "/areas/tring", date: "2026-10-06" },
+  { path: "/areas/watford", date: "2026-10-06" },
 ];

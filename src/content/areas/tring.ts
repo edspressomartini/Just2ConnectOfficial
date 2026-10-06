@@ -13,7 +13,7 @@ import type { AreaContent } from "@/types/area-content";
 export const tring: AreaContent = {
   slug: "tring",
   town: "Tring",
-  metaTitle: "Business Broadband and Phone Systems in Tring",
+  metaTitle: "Telephone Systems & Broadband in Tring",
   metaDescription:
     "Digital phone systems and business broadband in Tring, from a provider based in the town. Every one of our Tring clients is already migrated.",
   heading: "Business Broadband and Telephone Systems in Tring",
