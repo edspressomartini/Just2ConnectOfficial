@@ -1,485 +1,621 @@
 /* Hero */
-/*
- * Sized so the header, the hero and the first row of the logo banner all land
- * on the opening screen. The banner is the strongest proof on the page, so it
- * should not need a scroll to be seen. The floor stops the hero collapsing on
- * short laptop screens.
- */
 .homeHero {
-  min-height: max(400px, calc(100vh - var(--headerHeight) - 200px));
-  width: 100%;
-  display: flex;
+  overflow: hidden;
+  padding: clamp(40px, 6vw, 88px) 0 clamp(56px, 7vw, 104px);
+}
+
+.homeHero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  padding: 32px 0 48px;
+  gap: clamp(48px, 6vw, 80px);
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--pad);
 }
 
-/*
- * The headline comes first in the DOM so a phone visitor reads it before
- * scrolling past a large product photo. On desktop the photo moves back to
- * the left-hand column.
- */
-@media screen and (min-width: 960px) {
-  .homeHero__imageCol {
-    order: -1;
-  }
-}
-
-.homeHero__imageWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5%;
-}
-
-/*
- * Height-led rather than width-led, so on a short laptop the photo gives way
- * and the logo banner still lands on the opening screen. Width follows the
- * intrinsic aspect ratio.
- */
-.homeHero__image {
-  height: min(450px, calc(100vh - var(--headerHeight) - 275px));
-  width: auto;
-  max-width: 100%;
-}
-
-@media screen and (min-width: 960px) and (max-width: 1200px) {
-  .homeHero__image {
-    height: min(400px, calc(100vh - var(--headerHeight) - 275px));
-  }
-}
-
-/* The hero stacks below this, so there is no fold to protect. */
-@media screen and (max-width: 500px) {
-  .homeHero__image {
-    width: 300px;
-    height: auto;
+@media screen and (min-width: 992px) {
+  .homeHero__inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   }
 }
 
 .homeHero__text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 5%;
-  color: var(--colourTextDark);
-}
-
-.homeHero__eyebrow {
-  letter-spacing: 3px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: var(--colourPop);
-  padding-bottom: 16px;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .homeHero__title {
   font-size: var(--pageTitleSize);
-  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.02;
+  color: var(--ink);
+}
+
+.homeHero__accent {
+  color: var(--pink);
 }
 
 .homeHero__description {
-  padding-top: 24px;
-  letter-spacing: 1px;
-  font-size: 1.2rem;
-  color: var(--colourTextGrey);
+  max-width: 54ch;
+  font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  line-height: 1.6;
+  color: var(--ink-body);
 }
 
 .homeHero__description strong {
-  color: var(--colourTextDark);
+  font-weight: 500;
+  color: var(--ink);
 }
 
 .homeHero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  padding-top: 32px;
-}
-
-.buttonPrimary,
-.buttonSecondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
-  border-radius: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  transition:
-    background-color 200ms ease,
-    color 200ms ease;
-}
-
-.buttonPrimary {
-  background-color: var(--colourPop);
-  color: var(--colourBackWhite);
-  border: 2px solid var(--colourPop);
-}
-
-.buttonPrimary:hover {
-  background-color: var(--colourBackWhite);
-  color: var(--colourPop);
-}
-
-.buttonSecondary {
-  background-color: transparent;
-  color: var(--colourPop);
-  border: 2px solid var(--colourPop);
-}
-
-.buttonSecondary:hover {
-  background-color: var(--colourPop);
-  color: var(--colourBackWhite);
-}
-
-@media screen and (max-width: 959px) {
-  .homeHero__text {
-    text-align: center;
-    align-items: center;
-    padding-top: 32px;
-  }
-
-  .homeHero__actions {
-    justify-content: center;
-  }
-}
-
-/* Services */
-.servicesSection {
-  width: 80%;
-  margin: 0 auto 10%;
-  padding: 0 5% 2%;
-  color: var(--colourTextGrey);
-}
-
-@media screen and (max-width: 768px) {
-  .servicesSection {
-    width: 92%;
-    padding: 0 2% 2%;
-  }
-}
-
-.servicesSection__title {
-  font-size: var(--sectionTitleSize);
-  color: var(--colourTextDark);
-  text-align: center;
-  letter-spacing: 1px;
-  padding: 24px 0 48px;
-}
-
-/*
- * Three services since video conferencing was withdrawn. One column then
- * straight to three: a two-column stage would leave the third card stranded
- * on a row of its own.
- */
-.serviceCards {
-  list-style: none;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 40px 24px;
-}
-
-@media screen and (min-width: 900px) {
-  .serviceCards {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* Services sold on enquiry rather than from a price list. */
-.otherServices {
-  max-width: 760px;
-  margin: 56px auto 0;
-  padding-top: 32px;
-  border-top: 1px solid var(--colourBackLilac);
-  text-align: center;
-}
-
-.otherServices__title {
-  font-size: 0.875rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--colourTextGrey);
-  padding-bottom: 16px;
-}
-
-.otherServices__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 12px;
-  list-style: none;
-}
-
-.otherServices__item {
-  padding: 8px 16px;
-  font-size: 0.9375rem;
-  color: var(--colourTextDark);
-  background-color: var(--colourBackWhite);
-  border: 1px solid var(--colourBackLilac);
-  border-radius: 999px;
-}
-
-.otherServices__note {
-  padding-top: 20px;
-  font-size: 0.9375rem;
-  color: var(--colourTextGrey);
-}
-
-.serviceCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   gap: 12px;
-  padding: 16px;
-}
-
-.serviceCard__iconLink {
-  display: inline-flex;
-  position: relative;
-  top: 0;
-  transition: top ease 0.4s;
-}
-
-.serviceCard__iconLink:hover {
-  top: -10px;
-}
-
-.serviceCard__icon {
-  max-height: 80px;
-  width: auto;
-}
-
-.serviceCard__title {
-  font-size: 1.5rem;
-  color: var(--colourTextGrey);
   padding-top: 8px;
 }
 
-.serviceCard__text {
-  font-size: 1rem;
-  color: var(--colourTextGrey);
-  font-weight: normal;
-  padding: 0 10%;
-  flex: 1;
-}
-
-.serviceCard__text strong {
-  color: var(--colourPop);
-  font-weight: bold;
-}
-
-.serviceCard__link {
-  color: var(--colourTextGrey);
-  font-size: 0.7rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 12px 20px;
-  border-radius: 15px;
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(1px);
-  box-shadow: 0 0 5px 5px #cdd3e0;
-  transition:
-    transform 200ms ease,
-    color 200ms ease;
-}
-
-.serviceCard__link:hover {
-  transform: translateY(-5px);
-  color: var(--colourPop);
-}
-
-/* Welcome */
-.welcomeSection {
-  width: 100%;
-  box-shadow: var(--shadowCard);
-  background-color: rgba(255, 255, 255, 0.486);
-  backdrop-filter: blur(1px);
-  padding: 8% 0;
-}
-
-.welcomeSection__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-  padding: 0 10%;
-}
-
-.welcomeSection__heading {
-  font-size: var(--sectionTitleSize);
-  color: var(--colourTextDark);
-}
-
-.welcomeSection__subheading {
-  font-size: 1.6rem;
-  color: var(--colourTextDark);
-  padding-top: 16px;
-}
-
-.welcomeSection__paragraph {
-  font-size: 1.25rem;
-  color: var(--colourTextGrey);
-  padding-top: 20px;
-}
-
-.welcomeSection__paragraph strong {
-  color: var(--colourPop);
-}
-
-.welcomeSection__imageWrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5% 10%;
-}
-
-.welcomeSection__image {
-  max-width: 100%;
-  height: auto;
-}
-
-.inlineLink {
-  color: var(--colourPop);
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-@media screen and (max-width: 600px) {
-  .welcomeSection__subheading {
-    font-size: 1.3rem;
-  }
-
-  .welcomeSection__paragraph {
-    font-size: 1.1rem;
-  }
-}
-
-/* Why Just2Connect */
-.whySection {
-  width: 80%;
-  /*
-   * The welcome panel above and the stats strip below both butt straight up
-   * against this one. Without the margins the two translucent panels and their
-   * shadows overlap along a single seam.
-   */
-  margin: 80px auto;
-  background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(1.5px);
-  box-shadow: var(--shadowCard);
-  border-radius: 5px;
-  padding-bottom: 80px;
-}
-
-@media screen and (max-width: 768px) {
-  .whySection {
-    width: 92%;
-  }
-}
-
-.whySection__title {
-  font-size: var(--sectionTitleSize);
-  color: var(--colourTextDark);
-  text-align: center;
-  letter-spacing: 1px;
-  /* The panel now has its own margin, so it does not need 80px of lead-in too. */
-  padding: 56px 20px 20px;
+/* Services bento */
+.bento {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  list-style: none;
 }
 
 /*
- * Explicit column counts rather than auto-fit. There are four benefits, and
- * auto-fit settled on three columns at common desktop widths, stranding the
- * fourth on a row of its own with a block of dead space beside it.
+ * Two columns, then three. The telephony card always spans two, so with five
+ * cards both layouts fill every row: 2 + 2 + 2 on tablets, 3 + 3 on desktop.
  */
-.benefitGrid {
+@media screen and (min-width: 640px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bentoCard--feature {
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bento {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .bentoCard--feature {
+    grid-column: span 2;
+  }
+}
+
+.bentoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(24px, 3vw, 32px);
+}
+
+.bentoCard--feature {
+  container-type: inline-size;
+}
+
+.bentoCard--dark {
+  border-radius: var(--radius-card);
+}
+
+.bentoCard__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+}
+
+.bentoCard__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background-color: var(--pink-tint);
+  color: var(--pink);
+}
+
+.bentoCard--dark .bentoCard__icon {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--pink-on-dark);
+}
+
+.bentoCard__iconGlyph {
+  width: 22px;
+  height: 22px;
+}
+
+.bentoCard__title {
+  font-size: 1.375rem;
+  letter-spacing: -0.02em;
+}
+
+.bentoCard__text {
+  color: var(--muted);
+}
+
+.bentoCard--dark .bentoCard__text {
+  color: var(--on-dark-body);
+}
+
+.bentoCard .priceTag {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.bentoCard__split {
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+/*
+ * Text beside the diagram only when the card itself is wide enough. The card
+ * is narrower on small laptops, where it shares a row, than on tablets.
+ */
+@container (min-width: 620px) {
+  .bentoCard__split {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+}
+
+.bentoCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+/* Telephony card: one number fanning out to three devices */
+/* Scales with the viewport so the whole row fits a phone screen. */
+.routeDiagram {
+  --stub: clamp(12px, 3vw, 32px);
+  --branch: clamp(12px, 2.5vw, 28px);
+  display: flex;
+  align-items: center;
+  padding: clamp(12px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background-color: var(--ground);
+  background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
+  background-size: 16px 16px;
+  font-size: clamp(0.75rem, 3.2vw, 0.875rem);
+}
+
+/* Too narrow to fit even at the smallest size. */
+@media screen and (max-width: 359px) {
+  .routeDiagram {
+    display: none;
+  }
+}
+
+.routeDiagram__source {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  padding: 10px clamp(12px, 3vw, 16px);
+  border-radius: var(--radius-pill);
+  background-color: var(--navy);
+  color: var(--on-dark);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.routeDiagram__icon {
+  width: 14px;
+  height: 14px;
+}
+
+.routeDiagram__targets {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: var(--stub);
+  padding-left: var(--branch);
   list-style: none;
+}
+
+/* The stub from the number to the trunk, and the trunk joining the branches. */
+.routeDiagram__targets::before,
+.routeDiagram__targets::after {
+  content: "";
+  position: absolute;
+  background-color: var(--line-strong);
+}
+
+.routeDiagram__targets::before {
+  top: 50%;
+  left: calc(var(--stub) * -1);
+  width: var(--stub);
+  height: 2px;
+}
+
+.routeDiagram__targets::after {
+  top: 18px;
+  bottom: 18px;
+  left: 0;
+  width: 2px;
+}
+
+.routeDiagram__target {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  height: 36px;
+  padding: 0 clamp(10px, 2.5vw, 14px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background-color: var(--surface);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.routeDiagram__target::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: var(--branch);
+  height: 2px;
+  background-color: var(--line-strong);
+}
+
+.routeDiagram__dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--pink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .routeDiagram__dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border: 1.5px solid var(--pink);
+    border-radius: 50%;
+    animation: consoleRing 1.4s ease-out infinite;
+  }
+
+  .routeDiagram__target:nth-child(2) .routeDiagram__dot::after {
+    animation-delay: 0.2s;
+  }
+
+  .routeDiagram__target:nth-child(3) .routeDiagram__dot::after {
+    animation-delay: 0.4s;
+  }
+}
+
+/* Broadband card: connection status */
+.bentoStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  list-style: none;
+}
+
+.bentoStatus__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--on-dark-line);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bentoStatus__label {
+  font-size: 0.875rem;
+  color: var(--on-dark);
+}
+
+/* Services sold on enquiry rather than from a price list */
+.alsoSupply {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background-color: var(--surface);
+}
+
+.alsoSupply__title {
+  font-size: 0.9375rem;
+  letter-spacing: 0;
+}
+
+.alsoSupply .pillList__item {
+  background-color: var(--ground);
+}
+
+.alsoSupply__note {
+  flex-basis: 100%;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* 2027 switch-off */
+.switchOff {
+  padding: clamp(32px, 6vw, 80px);
+}
+
+.switchOff__grid {
+  display: grid;
+  align-items: center;
+  gap: 48px;
+}
+
+@media screen and (min-width: 992px) {
+  .switchOff__grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+}
+
+.switchOff__text .sectionHead {
+  margin-bottom: 32px;
+}
+
+.switchOff__stats {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+.switchReceipt {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-self: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  border-radius: 20px;
+  background-color: var(--surface);
+  color: var(--ink-body);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+}
+
+@media screen and (min-width: 992px) {
+  .switchReceipt {
+    transform: rotate(2deg);
+  }
+}
+
+.switchReceipt__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.switchReceipt__move {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background-color: var(--ground);
+}
+
+.switchReceipt__from {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--pink);
+}
+
+/* The diagonal arrow icon, turned to point straight across. */
+.switchReceipt__arrow {
+  width: 16px;
+  height: 16px;
+  color: var(--pink);
+  transform: rotate(45deg);
+}
+
+.switchReceipt__to {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.switchReceipt__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-inline: 4px;
+}
+
+.switchReceipt__label {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.switchReceipt__ready {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line-strong);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--green-ink);
+}
+
+/* Why us. The stats strip follows, so the section hands its spacing to that. */
+.whyUs {
+  padding-bottom: 48px;
+}
+
+.whyGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 40px 24px;
-  padding: 0 5%;
+  gap: 16px;
+  list-style: none;
 }
 
 @media screen and (min-width: 640px) {
-  .benefitGrid {
+  .whyGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media screen and (min-width: 1100px) {
-  .benefitGrid {
+  .whyGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
-.benefit {
+.whyCard {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 24px 8px;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 28px;
+}
+
+.whyCard__title {
+  padding-top: 48px;
+  font-size: 1.375rem;
+  letter-spacing: -0.02em;
+}
+
+.whyCard__text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-body);
+}
+
+/* Towns */
+.townGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  list-style: none;
+}
+
+.townCard--hq {
+  grid-column: 1 / -1;
 }
 
 /*
- * Sized for the four-column layout. The previous 1.75rem/1.25rem type was set
- * for wide columns and wrapped every heading onto two lines once the grid was
- * pinned to four.
+ * Four columns: the head office takes the first column across both rows and
+ * the six other towns fill the remaining three-by-two.
  */
-.benefit__image {
-  max-height: 140px;
-  width: auto;
-  margin-bottom: 20px;
+@media screen and (min-width: 992px) {
+  .townGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .townCard--hq {
+    grid-column: 1;
+    grid-row: span 2;
+  }
 }
 
-.benefit__title {
+.townCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 132px;
+  padding: 20px;
+}
+
+.townCard--hq {
+  gap: 12px;
+  padding: 28px;
+  border-radius: var(--radius-card);
+}
+
+.townCard__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.townCard__name {
+  margin-top: auto;
   font-size: 1.25rem;
-  color: var(--colourTextDark);
-  letter-spacing: 0.5px;
+  letter-spacing: -0.02em;
 }
 
-.benefit__text {
-  font-size: 1rem;
+.townCard--hq .townCard__name {
+  padding-top: 24px;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+}
+
+.townCard__strapline {
+  font-size: 0.9375rem;
   line-height: 1.6;
-  color: var(--colourTextGrey);
-  padding: 12px 8px 0;
+  color: var(--on-dark-body);
+}
+
+.townCard__address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--on-dark-muted);
+}
+
+.townCard__pin {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--pink-on-dark);
+}
+
+.townGrid__more {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
 }
 
 /* Testimonials */
-.testimonialSection {
-  padding-bottom: 80px;
-}
-
-.testimonialSection__title {
-  font-size: var(--sectionTitleSize);
-  color: var(--colourTextDark);
-  text-align: center;
-  letter-spacing: 1px;
-  padding: 80px 20px 20px;
+.testimonials {
+  overflow: hidden;
 }
 
 /*
- * Scroll-snap carousel. Replaces react-elastic-carousel: no JavaScript, and it
- * keeps native keyboard and touch scrolling.
+ * Scroll-snap carousel: no JavaScript, and native keyboard and touch
+ * scrolling. The inset lines the first card up with the container edge, and
+ * the partly visible card at the far edge is the cue that there is more.
  */
 .testimonialTrack {
-  list-style: none;
+  --trackInset: max(var(--pad), calc((100% - var(--max)) / 2 + var(--pad)));
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(300px, 420px);
-  gap: 24px;
+  /* A fixed width, so the cards do not shrink to fit the visible area. */
+  grid-auto-columns: clamp(280px, 82vw, 400px);
+  gap: 16px;
+  padding: 4px var(--trackInset) 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 20px 5% 32px;
-  /*
-   * Scrollbar hidden. The partly visible card at the right edge is the
-   * affordance instead. Scrolling itself is untouched, so touch, trackpad and
-   * keyboard all still work.
-   */
+  scroll-padding-inline: var(--trackInset);
+  list-style: none;
   scrollbar-width: none;
-  -ms-overflow-style: none;
 }
 
 .testimonialTrack::-webkit-scrollbar {
@@ -487,46 +623,45 @@
 }
 
 .testimonial {
-  scroll-snap-align: center;
-  background-color: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(1.5px);
-  border-radius: 20px;
-  box-shadow: var(--shadowCard);
-  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 16px;
+  gap: 20px;
+  padding: 28px;
+  scroll-snap-align: start;
 }
 
 .testimonial__stars {
-  height: 30px;
+  align-self: flex-start;
   width: auto;
+  height: 20px;
+}
+
+.testimonial__body {
+  flex: 1;
 }
 
 .testimonial__quote {
-  color: var(--colourTextDark);
-  font-size: 1.25rem;
-  font-style: italic;
-  flex: 1;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--ink);
 }
 
 .testimonial__quote mark {
   background: none;
-  color: var(--colourPop);
-  font-style: italic;
+  color: var(--pink);
 }
 
 .testimonial__attribution {
-  font-style: normal;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 0.9375rem;
 }
 
 .testimonial__name {
-  color: var(--colourTextDark);
-  font-weight: bold;
+  font-weight: 500;
+  color: var(--ink);
 }
 
 .testimonial__company {
-  color: var(--colourTextGrey);
+  color: var(--muted);
 }
