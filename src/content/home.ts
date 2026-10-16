@@ -11,6 +11,7 @@ import { telephoneSystems } from "@/content/services/telephone-systems";
 import { virtualPhoneNumbers } from "@/content/services/virtual-phone-numbers";
 import type { BenefitCardContent } from "@/types/benefit-card-content";
 import type { CompactServiceCardContent } from "@/types/compact-service-card-content";
+import type { ConsoleRow } from "@/types/console-row";
 import type { HeroChipProps } from "@/types/hero-chip-props";
 import type { SectionCopy } from "@/types/section-copy";
 import type { ServiceCardContent } from "@/types/service-card-content";
@@ -56,6 +57,29 @@ export const broadbandCard: ServiceCardContent = {
   description:
     "Fast, reliable business broadband with the speed and price point to match your needs.",
 };
+
+/** The illustrated line status on the broadband card. */
+export const broadbandStatusRows: readonly ConsoleRow[] = [
+  {
+    label: "Main connection",
+    // Not "full fibre": the price beside it is the fibre-to-the-cabinet one.
+    detail: "Business fibre",
+    status: "Connected",
+    tone: "live",
+  },
+  {
+    label: "Assure-X failover",
+    detail: "Automatic backup line",
+    status: "Standby",
+    tone: "idle",
+  },
+  {
+    label: "IP address",
+    detail: "Same on either line",
+    status: "Kept",
+    tone: "done",
+  },
+];
 
 export const compactServiceCards: readonly CompactServiceCardContent[] = [
   {

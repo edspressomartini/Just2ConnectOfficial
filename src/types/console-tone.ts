@@ -1,2 +1,2 @@
-/** Colour and icon of a status pill in a console panel. */
-export type ConsoleTone = "ringing" | "live" | "idle" | "done";
+/** Colour and icon of a status pill on an illustrated card. */
+export type ConsoleTone = "live" | "idle" | "done";

@@ -7,7 +7,7 @@ import { HeroChip } from "@/components/HeroChip";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { StatsStrip } from "@/components/StatsStrip";
 import { Testimonials } from "@/components/Testimonials";
-import { HeroConsole } from "@/components/home/HeroConsole";
+import { HeroScenes } from "@/components/home/HeroScenes";
 import { ServicesBento } from "@/components/home/ServicesBento";
 import { SwitchOffPanel } from "@/components/home/SwitchOffPanel";
 import { TownCards } from "@/components/home/TownCards";
@@ -15,10 +15,7 @@ import { WhyUs } from "@/components/home/WhyUs";
 import { ArrowUpRightIcon } from "@/components/icons/ArrowUpRightIcon";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
 import { business } from "@/content/business";
-import {
-  heroConsolePanels,
-  heroConsolePhoneCaption,
-} from "@/content/hero-console";
+import { heroScenesPhoneCaption } from "@/content/hero-scenes";
 import {
   credentialsCopy,
   enquiryCopy,
@@ -71,10 +68,9 @@ export default function HomePage() {
           </div>
 
           <div className="homeHero__visual">
-            <HeroConsole
-              panels={heroConsolePanels}
+            <HeroScenes
               phoneNumber={business.phone.display}
-              phoneCaption={heroConsolePhoneCaption}
+              phoneCaption={heroScenesPhoneCaption}
             />
           </div>
         </div>

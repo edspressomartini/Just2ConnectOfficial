@@ -1,0 +1,457 @@
+/*
+ * Scene drawings: cards joined by lines, each playing through what one
+ * service does and coming to rest on the finished picture. The finished
+ * picture is the default styling and every animation runs into it, so with
+ * reduced motion the drawing is simply still.
+ */
+.sceneCanvas {
+  position: relative;
+  container-type: inline-size;
+  border-radius: var(--radius-card);
+  background-color: var(--panel);
+}
+
+.sceneCanvas__links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sceneLink__track,
+.sceneLink__flow {
+  fill: none;
+  stroke-width: 1.5;
+}
+
+/* The path is one unit long (pathLength), so a single dash covers all of it. */
+.sceneLink__track {
+  stroke: var(--line-strong);
+  stroke-dasharray: 1;
+}
+
+.sceneLink__flow {
+  stroke: var(--pink);
+  stroke-dasharray: 4 6;
+  stroke-linecap: round;
+  opacity: 0;
+}
+
+.sceneLink--live .sceneLink__flow {
+  opacity: 1;
+}
+
+.sceneNode {
+  position: absolute;
+  translate: -50% -50%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background-color: var(--surface);
+  box-shadow: var(--shadow-card);
+  white-space: nowrap;
+}
+
+/* Hangs off its point by the left edge, so a column of cards lines up. */
+.sceneNode--start {
+  translate: 0 -50%;
+}
+
+.sceneNode__icon {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: var(--panel);
+  color: var(--muted);
+}
+
+.sceneNode--on .sceneNode__icon {
+  background-color: var(--pink-tint);
+  color: var(--pink);
+}
+
+.sceneNode__glyph {
+  width: 18px;
+  height: 18px;
+}
+
+.sceneNode__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.sceneNode__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.sceneNode__detail {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.sceneNode__badge {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background-color: var(--navy);
+  color: var(--on-dark);
+}
+
+.sceneNode__badge--failed {
+  background-color: var(--red-ink);
+}
+
+.sceneNode__badgeIcon {
+  width: 11px;
+  height: 11px;
+}
+
+/* Narrow drawings drop the detail line, so the cards leave room for the lines. */
+@container (max-width: 419px) {
+  .sceneNode {
+    gap: 8px;
+    padding: 6px 10px 6px 6px;
+    border-radius: 12px;
+  }
+
+  .sceneNode__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .sceneNode__glyph {
+    width: 15px;
+    height: 15px;
+  }
+
+  .sceneNode__label {
+    font-size: 0.75rem;
+  }
+
+  .sceneNode__detail {
+    display: none;
+  }
+}
+
+/* The narrowest phones: tighter still, so the right-hand cards stay inside. */
+@container (max-width: 319px) {
+  .sceneNode {
+    gap: 6px;
+    padding: 5px 8px 5px 5px;
+  }
+
+  .sceneNode__icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+  }
+
+  .sceneNode__glyph {
+    width: 13px;
+    height: 13px;
+  }
+
+  .sceneNode__label {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sceneNode {
+    animation: sceneNodeIn 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .sceneLink__track {
+    animation: sceneDraw 600ms ease-out both;
+  }
+
+  .sceneLink--live .sceneLink__flow {
+    animation: sceneFlow 900ms linear infinite;
+  }
+
+  .sceneNode__badge {
+    animation: scenePop 400ms cubic-bezier(0.3, 1.5, 0.5, 1) both;
+  }
+
+  /* Calls: every device rings for two seconds... */
+  .callsScene__deskPhone {
+    animation-delay: 100ms;
+  }
+
+  .callsScene__mobile {
+    animation-delay: 180ms;
+  }
+
+  .callsScene__laptop {
+    animation-delay: 260ms;
+  }
+
+  .callsScene .sceneLink__track {
+    animation-delay: 350ms;
+  }
+
+  .callsScene__device .sceneNode__glyph {
+    animation: sceneRing 1s ease-in-out 1s 2;
+  }
+
+  .callsScene__mobile .sceneNode__glyph {
+    animation-delay: 1.08s;
+  }
+
+  .callsScene__laptop .sceneNode__glyph {
+    animation-delay: 1.16s;
+  }
+
+  .callsScene__mobile .sceneNode__icon,
+  .callsScene__laptop .sceneNode__icon {
+    animation: sceneIconWindow 2.2s 1s;
+  }
+
+  .callsScene__ringLink .sceneLink__flow {
+    animation:
+      sceneFlow 900ms linear infinite,
+      sceneWindow 2.2s 1s;
+  }
+
+  /* ...then the desk phone picks up. */
+  .callsScene__deskPhone .sceneNode__icon {
+    animation: sceneIconFromIdle 200ms 1s backwards;
+  }
+
+  .callsScene__answeredLink .sceneLink__flow {
+    animation:
+      sceneFlow 900ms linear infinite,
+      sceneShow 200ms 1s backwards;
+  }
+
+  .callsScene__deskPhone .sceneNode__badge {
+    animation-delay: 3.2s;
+  }
+
+  /* Broadband: the fibre carries the office... */
+  .broadbandScene__backup {
+    animation-delay: 100ms;
+  }
+
+  .broadbandScene__office {
+    animation-delay: 200ms;
+  }
+
+  .broadbandScene .sceneLink__track {
+    animation-delay: 350ms;
+  }
+
+  .broadbandScene__main .sceneNode__icon {
+    animation: sceneIconWindow 1.8s 0.9s;
+  }
+
+  .broadbandScene__mainLink .sceneLink__flow {
+    animation:
+      sceneFlow 900ms linear infinite,
+      sceneWindow 1.8s 0.9s;
+  }
+
+  /* ...until it drops, and the backup takes over. */
+  .broadbandScene__main .sceneNode__badge {
+    animation-delay: 2.7s;
+  }
+
+  .broadbandScene__backup .sceneNode__icon {
+    animation: sceneIconFromIdle 300ms 2.9s backwards;
+  }
+
+  .broadbandScene__backupLink .sceneLink__flow {
+    animation:
+      sceneFlow 900ms linear infinite,
+      sceneShow 300ms 2.9s backwards;
+  }
+
+  .broadbandScene__office .sceneNode__badge {
+    animation:
+      scenePop 400ms cubic-bezier(0.3, 1.5, 0.5, 1) 600ms both,
+      sceneBump 500ms ease-in-out 3.2s;
+  }
+
+  /* Support: the call reaches a person... */
+  .supportScene__person {
+    animation-delay: 100ms;
+  }
+
+  .supportScene__engineer {
+    animation-delay: 200ms;
+  }
+
+  .supportScene__callLink .sceneLink__track {
+    animation-delay: 400ms;
+  }
+
+  .supportScene__callLink .sceneLink__flow {
+    animation:
+      sceneFlow 900ms linear infinite,
+      sceneShow 300ms 1s backwards;
+  }
+
+  .supportScene__person .sceneNode__icon {
+    animation: sceneIconFromIdle 300ms 1.2s backwards;
+  }
+
+  .supportScene__person .sceneNode__badge {
+    animation-delay: 1.4s;
+  }
+
+  /* ...who sends an engineer out. */
+  .supportScene__visitLink .sceneLink__track {
+    animation-delay: 1.9s;
+  }
+
+  .supportScene__visitLink .sceneLink__flow {
+    animation:
+      sceneFlow 900ms linear infinite,
+      sceneShow 300ms 2.5s backwards;
+  }
+
+  .supportScene__engineer .sceneNode__icon {
+    overflow: hidden;
+    animation: sceneIconFromIdle 300ms 2.6s backwards;
+  }
+
+  .supportScene__engineer .sceneNode__glyph {
+    animation: sceneDrive 800ms 2.5s;
+  }
+
+  .supportScene__engineer .sceneNode__badge {
+    animation-delay: 3.1s;
+  }
+}
+
+@keyframes sceneNodeIn {
+  from {
+    opacity: 0;
+    scale: 0.9;
+  }
+}
+
+@keyframes sceneDraw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+/* One dash and one gap of the flow pattern, so the loop is seamless. */
+@keyframes sceneFlow {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+@keyframes scenePop {
+  from {
+    scale: 0;
+  }
+}
+
+@keyframes sceneBump {
+  50% {
+    scale: 1.3;
+  }
+}
+
+@keyframes sceneShow {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Visible while it runs, then fades back to the hidden default. */
+@keyframes sceneWindow {
+  0%,
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Lit while it runs, then eases back to the idle default. */
+@keyframes sceneIconWindow {
+  0%,
+  90% {
+    background-color: var(--pink-tint);
+    color: var(--pink);
+  }
+}
+
+@keyframes sceneIconFromIdle {
+  from {
+    background-color: var(--panel);
+    color: var(--muted);
+  }
+}
+
+@keyframes sceneRing {
+  0%,
+  60%,
+  100% {
+    rotate: 0deg;
+  }
+
+  10% {
+    rotate: -14deg;
+  }
+
+  20% {
+    rotate: 12deg;
+  }
+
+  30% {
+    rotate: -10deg;
+  }
+
+  40% {
+    rotate: 7deg;
+  }
+
+  50% {
+    rotate: -3deg;
+  }
+}
+
+/* Out of its box to the right, back in from the left. 28px clears either box size. */
+@keyframes sceneDrive {
+  0% {
+    translate: 0 0;
+    animation-timing-function: ease-in;
+  }
+
+  45% {
+    translate: 28px 0;
+  }
+
+  45.01% {
+    translate: -28px 0;
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}

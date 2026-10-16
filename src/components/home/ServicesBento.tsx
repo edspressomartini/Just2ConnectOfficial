@@ -10,9 +10,9 @@ import { ArrowUpRightIcon } from "@/components/icons/ArrowUpRightIcon";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
 import { RouterIcon } from "@/components/icons/RouterIcon";
 import { business } from "@/content/business";
-import { broadbandStatusRows } from "@/content/hero-console";
 import {
   broadbandCard,
+  broadbandStatusRows,
   compactServiceCards,
   otherServices,
   otherServicesHeading,

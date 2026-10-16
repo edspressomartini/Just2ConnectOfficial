@@ -1,0 +1,40 @@
+/* Status pill on an illustrated card, e.g. "Connected" or "✓ Kept" */
+.consoleStatus {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.consoleStatus__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.consoleStatus__icon {
+  width: 12px;
+  height: 12px;
+}
+
+.consoleStatus--live {
+  background-color: var(--green-tint);
+  color: var(--green-ink);
+}
+
+.consoleStatus--idle {
+  background-color: var(--panel);
+  color: var(--muted);
+}
+
+.consoleStatus--done {
+  background-color: var(--navy-tint);
+  color: var(--navy);
+}
