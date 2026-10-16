@@ -19,6 +19,7 @@ import "@/styles/footer.css";
 import "@/styles/mobile-call-bar.css";
 import "@/styles/whatsapp.css";
 import "@/styles/contact-form.css";
+import "@/styles/enquiry-section.css";
 import "@/styles/cookie-consent.css";
 import "@/styles/console.css";
 import "@/styles/home.css";
