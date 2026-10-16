@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CallLink } from "@/components/CallLink";
+import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { MailIcon } from "@/components/icons/MailIcon";
 import { allAreas } from "@/content/areas";
 import { business, mailtoHref } from "@/content/business";
 import { guideLinks } from "@/content/navigation";
 import { allServices } from "@/content/services";
-import emailIcon from "@/images/Footer/emailFooter.svg";
-import linkedInIcon from "@/images/Footer/linkedinFooter.svg";
-import waves from "@/images/Footer/wavesFooter.svg";
+import logo from "@/images/Just2Connect_Logo.svg";
+import { openingHoursSummary } from "@/lib/opening-hours-summary";
 
 interface FooterLink {
   readonly href: string;
@@ -37,30 +38,22 @@ function TownName({ town }: { readonly town: string }) {
   );
 }
 
-/** "Monday to Friday", from the days the business is actually open. */
-function openingDays(): string {
-  const { days } = business.openingHours;
-  const first = days[0];
-  const last = days[days.length - 1];
-
-  if (first === undefined || last === undefined) {
-    return "";
-  }
-
-  return first === last ? first : `${first} to ${last}`;
-}
-
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <>
-      <Image src={waves} alt="" className="wavesFooter" unoptimized />
-
-      <footer className="footer">
+    <footer className="footer">
+      <div className="footer__inner">
         <div className="footer__columns">
           <div className="footer__column footer__column--brand">
-            <p className="footer__brand">{business.tradingName}</p>
+            <Link href="/" className="footer__logo">
+              <Image
+                src={logo}
+                alt={business.tradingName}
+                className="footer__logoImage"
+                unoptimized
+              />
+            </Link>
             <p className="footer__blurb">
               Business telephone systems, broadband and mobile for companies
               across Hertfordshire, Bedfordshire and Buckinghamshire. Local
@@ -74,20 +67,14 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Image
-                  src={linkedInIcon}
-                  alt="Just2Connect on LinkedIn"
-                  className="footer__socialIcon"
-                  unoptimized
-                />
+                <LinkedInIcon className="footer__socialIcon" />
+                <span className="visuallyHidden">
+                  {business.tradingName} on LinkedIn
+                </span>
               </a>
               <a href={mailtoHref} className="footer__socialLink">
-                <Image
-                  src={emailIcon}
-                  alt={`Email ${business.email}`}
-                  className="footer__socialIcon"
-                  unoptimized
-                />
+                <MailIcon className="footer__socialIcon" />
+                <span className="visuallyHidden">Email {business.email}</span>
               </a>
             </div>
           </div>
@@ -147,10 +134,7 @@ export function Footer() {
                   {business.address.postalCode}
                 </address>
               </li>
-              <li className="footer__hours">
-                {openingDays()}, {business.openingHours.opens} to{" "}
-                {business.openingHours.closes}
-              </li>
+              <li className="footer__hours">{openingHoursSummary()}</li>
             </ul>
           </div>
         </div>
@@ -175,7 +159,7 @@ export function Footer() {
             , {business.address.addressRegion}, {business.address.postalCode}
           </p>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }

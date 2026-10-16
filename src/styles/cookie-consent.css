@@ -7,10 +7,10 @@
   max-width: 560px;
   margin: 0 auto;
   padding: 20px 24px;
-  background-color: var(--colourBackWhite);
-  border: 2px solid var(--colourBackLilac);
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(31, 48, 109, 0.18);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-float);
 }
 
 /* Sit above the mobile call bar rather than behind it. */
@@ -22,11 +22,11 @@
 
 .cookieConsent__text {
   font-size: 0.95rem;
-  color: var(--colourTextGrey);
+  color: var(--ink-body);
 }
 
 .cookieConsent__link {
-  color: var(--colourPop);
+  color: var(--pink);
 }
 
 .cookieConsent__actions {
@@ -36,19 +36,22 @@
   padding-top: 16px;
 }
 
+/* Equal weight for both choices, so refusing is as easy as agreeing. */
 .cookieConsent__button {
-  padding: 10px 22px;
-  border-radius: 20px;
-  font-weight: bold;
-  border: 2px solid var(--colourPop);
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
 }
 
 .cookieConsent__button--accept {
-  background-color: var(--colourPop);
-  color: var(--colourBackWhite);
+  background-color: var(--pink);
+  color: var(--surface);
 }
 
 .cookieConsent__button--reject {
-  background-color: var(--colourBackWhite);
-  color: var(--colourPop);
+  border-color: var(--line-strong);
+  background-color: var(--surface);
+  color: var(--ink);
 }
