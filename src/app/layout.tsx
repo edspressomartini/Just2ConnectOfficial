@@ -20,6 +20,7 @@ import "@/styles/mobile-call-bar.css";
 import "@/styles/whatsapp.css";
 import "@/styles/contact-form.css";
 import "@/styles/cookie-consent.css";
+import "@/styles/console.css";
 import "@/styles/home.css";
 import "@/styles/logo-marquee.css";
 import "@/styles/credentials.css";
