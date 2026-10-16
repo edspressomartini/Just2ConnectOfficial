@@ -20,13 +20,13 @@ import type { SwitchOffReceiptCopy } from "@/types/switch-off-receipt-copy";
 /*
  * The home page wording, section by section and in page order, so it can be
  * read and signed off without opening the components. The H1 and the hero
- * paragraph stay in the page itself: they carry the search keywords and are
- * not being rewritten.
+ * paragraph (in the page) and the welcome paragraphs (in WelcomeSection) are
+ * the live site's wording: they carry the search keywords and are not being
+ * rewritten.
  */
 
 export const heroChip: HeroChipProps = {
-  highlight: "Site visits included",
-  detail: "Herts, Beds & Bucks",
+  highlight: "Stay connected to your customers",
 };
 
 export const servicesCopy: SectionCopy = {
@@ -116,6 +116,17 @@ export const otherServices: readonly string[] = [
   "WiFi access points",
   "Broadband and telephony hardware",
 ];
+
+export const welcomeCopy: SectionCopy = {
+  eyebrow: "About us",
+  lead: "Welcome to",
+  accent: "Just2Connect",
+  intro:
+    "Business telephone systems and broadband in Hertfordshire, Bedfordshire and Buckinghamshire... and beyond",
+};
+
+export const welcomeImageAlt =
+  "Grandstream business telephone system supplied by Just2Connect";
 
 export const switchOffCopy: SectionCopy = {
   eyebrow: "The 2027 switch-off",
@@ -211,7 +222,7 @@ export const townLocalBadge = "Local";
 export const townsAllAreasLink = "All areas we cover";
 
 export const reviewsCopy: SectionCopy = {
-  eyebrow: "Customer reviews",
+  eyebrow: "What our customers say",
   lead: "Don't take our word for it.",
   accent: "Take theirs.",
 };
@@ -225,7 +236,7 @@ export const credentialsCopy: SectionCopy = {
 };
 
 export const enquiryCopy: SectionCopy = {
-  eyebrow: "Get in touch",
+  eyebrow: "Tell us what your business needs",
   lead: "Ready for phones",
   accent: "that just work?",
   intro: "Send us a message, or call and speak to a human on the first ring.",

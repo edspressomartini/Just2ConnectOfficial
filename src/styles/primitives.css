@@ -124,7 +124,7 @@ a:hover > .button__icon--arrow {
   transform: translate(2px, -2px);
 }
 
-/* Pill above a hero heading, e.g. "Site visits included · Herts, Beds & Bucks" */
+/* Pill above a hero heading, e.g. "Stay connected to your customers" */
 .heroChip {
   display: inline-flex;
   align-items: center;

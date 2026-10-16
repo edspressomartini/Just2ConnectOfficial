@@ -11,6 +11,7 @@ import { HeroScenes } from "@/components/home/HeroScenes";
 import { ServicesBento } from "@/components/home/ServicesBento";
 import { SwitchOffPanel } from "@/components/home/SwitchOffPanel";
 import { TownCards } from "@/components/home/TownCards";
+import { WelcomeSection } from "@/components/home/WelcomeSection";
 import { WhyUs } from "@/components/home/WhyUs";
 import { ArrowUpRightIcon } from "@/components/icons/ArrowUpRightIcon";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
@@ -79,6 +80,8 @@ export default function HomePage() {
       <LogoMarquee />
 
       <ServicesBento />
+
+      <WelcomeSection />
 
       <SwitchOffPanel />
 

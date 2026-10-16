@@ -335,6 +335,66 @@
   color: var(--muted);
 }
 
+/* Welcome */
+.welcome {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 80px);
+}
+
+@media screen and (min-width: 992px) {
+  .welcome {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    align-items: center;
+  }
+
+  /* Left on wide screens, but after the text in reading order. */
+  .welcome__visual {
+    order: -1;
+  }
+}
+
+.welcome__text .sectionHead {
+  margin-bottom: 32px;
+}
+
+.welcome__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 60ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-body);
+}
+
+.welcome__body strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.welcome__lead {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.welcome__visual {
+  display: grid;
+  place-items: center;
+  padding: clamp(32px, 6vw, 64px);
+  background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.welcome__image {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  filter: drop-shadow(0 24px 32px rgba(15, 21, 53, 0.18));
+}
+
 /* 2027 switch-off */
 .switchOff {
   padding: clamp(32px, 6vw, 80px);
