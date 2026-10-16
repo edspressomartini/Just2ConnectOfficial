@@ -54,15 +54,6 @@
   background-color: var(--line-strong);
 }
 
-.heroConsole__live {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--green-ink);
-}
-
 .heroConsole__tabs {
   display: grid;
   grid-auto-flow: column;

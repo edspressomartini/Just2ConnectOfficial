@@ -1,5 +1,6 @@
 import { ConsoleStatus } from "@/components/ConsoleStatus";
 import { ArrowUpRightIcon } from "@/components/icons/ArrowUpRightIcon";
+import { CheckIcon } from "@/components/icons/CheckIcon";
 import { switchOffReceipt } from "@/content/home";
 
 /** Illustrated before-and-after card. Decorative: the heading says the same. */
@@ -22,7 +23,7 @@ export function SwitchOffReceipt() {
       </div>
 
       <p className="switchReceipt__ready">
-        <span className="statusChip__dot" />
+        <CheckIcon className="switchReceipt__readyIcon" />
         {switchOffReceipt.ready}
       </p>
     </div>

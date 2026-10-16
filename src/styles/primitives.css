@@ -124,12 +124,12 @@ a:hover > .button__icon--arrow {
   transform: translate(2px, -2px);
 }
 
-/* Live status chip, e.g. "● Site visits included" */
-.statusChip {
+/* Pill above a hero heading, e.g. "Site visits included · Herts, Beds & Bucks" */
+.heroChip {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 14px 5px 6px;
+  padding: 6px 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
   background-color: var(--surface);
@@ -138,45 +138,9 @@ a:hover > .button__icon--arrow {
   color: var(--ink-body);
 }
 
-.statusChip__dot {
-  position: relative;
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: var(--green-tint);
-}
-
-.statusChip__dot::before,
-.statusChip__dot::after {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border-radius: 50%;
-  background-color: var(--green-live);
-}
-
-.statusChip__strong {
-  color: var(--green-ink);
+.heroChip__strong {
+  color: var(--ink);
   font-weight: 500;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .statusChip__dot::before {
-    animation: livePulse 2.4s ease-out infinite;
-  }
-}
-
-@keyframes livePulse {
-  from {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-
-  to {
-    transform: scale(3.2);
-    opacity: 0;
-  }
 }
 
 /* Small label inside cards and rows, e.g. "Member since 2017" */

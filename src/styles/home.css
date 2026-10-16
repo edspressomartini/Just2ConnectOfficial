@@ -460,6 +460,12 @@
   color: var(--green-ink);
 }
 
+.switchReceipt__readyIcon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
 /* Why us. The stats strip follows, so the section hands its spacing to that. */
 .whyUs {
   padding-bottom: 48px;

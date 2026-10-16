@@ -37,10 +37,6 @@ export function HeroConsole({
             <span className="heroConsole__light" />
             <span className="heroConsole__light" />
           </span>
-          <span className="heroConsole__live">
-            <span className="statusChip__dot" />
-            Live
-          </span>
         </div>
 
         <div className="heroConsole__tabs">

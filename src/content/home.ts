@@ -11,9 +11,9 @@ import { telephoneSystems } from "@/content/services/telephone-systems";
 import { virtualPhoneNumbers } from "@/content/services/virtual-phone-numbers";
 import type { BenefitCardContent } from "@/types/benefit-card-content";
 import type { CompactServiceCardContent } from "@/types/compact-service-card-content";
+import type { HeroChipProps } from "@/types/hero-chip-props";
 import type { SectionCopy } from "@/types/section-copy";
 import type { ServiceCardContent } from "@/types/service-card-content";
-import type { StatusChipProps } from "@/types/status-chip-props";
 import type { SwitchOffReceiptCopy } from "@/types/switch-off-receipt-copy";
 
 /*
@@ -23,7 +23,7 @@ import type { SwitchOffReceiptCopy } from "@/types/switch-off-receipt-copy";
  * not being rewritten.
  */
 
-export const heroChip: StatusChipProps = {
+export const heroChip: HeroChipProps = {
   highlight: "Site visits included",
   detail: "Herts, Beds & Bucks",
 };

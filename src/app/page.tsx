@@ -3,9 +3,9 @@ import Link from "next/link";
 import { CallLink } from "@/components/CallLink";
 import { Credentials } from "@/components/Credentials";
 import { EnquirySection } from "@/components/EnquirySection";
+import { HeroChip } from "@/components/HeroChip";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { StatsStrip } from "@/components/StatsStrip";
-import { StatusChip } from "@/components/StatusChip";
 import { Testimonials } from "@/components/Testimonials";
 import { HeroConsole } from "@/components/home/HeroConsole";
 import { ServicesBento } from "@/components/home/ServicesBento";
@@ -46,7 +46,7 @@ export default function HomePage() {
       <section className="homeHero">
         <div className="homeHero__inner">
           <div className="homeHero__text">
-            <StatusChip highlight={heroChip.highlight} detail={heroChip.detail} />
+            <HeroChip highlight={heroChip.highlight} detail={heroChip.detail} />
             <h1 className="homeHero__title">
               Business Telephone Systems{" "}
               <span className="homeHero__accent">&amp; Broadband</span>
