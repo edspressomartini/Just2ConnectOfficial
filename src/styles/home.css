@@ -276,42 +276,10 @@
 }
 
 .routeDiagram__dot {
-  position: relative;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background-color: var(--pink);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .routeDiagram__dot::after {
-    content: "";
-    position: absolute;
-    inset: -4px;
-    border: 1.5px solid var(--pink);
-    border-radius: 50%;
-    animation: routeRing 1.4s ease-out infinite;
-  }
-
-  .routeDiagram__target:nth-child(2) .routeDiagram__dot::after {
-    animation-delay: 0.2s;
-  }
-
-  .routeDiagram__target:nth-child(3) .routeDiagram__dot::after {
-    animation-delay: 0.4s;
-  }
-}
-
-@keyframes routeRing {
-  from {
-    transform: scale(0.5);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(1.6);
-    opacity: 0;
-  }
 }
 
 /* Broadband card: connection status */

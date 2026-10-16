@@ -11,11 +11,7 @@ const CLASS_BY_TONE: { readonly [K in ConsoleTone]: string } = {
 export function ConsoleStatus({ status, tone }: ConsoleStatusProps) {
   return (
     <span className={CLASS_BY_TONE[tone]}>
-      {tone === "done" ? (
-        <CheckIcon className="consoleStatus__icon" />
-      ) : (
-        <span className="consoleStatus__dot" />
-      )}
+      {tone === "done" ? <CheckIcon className="consoleStatus__icon" /> : null}
       {status}
     </span>
   );
