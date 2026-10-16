@@ -1,6 +1,7 @@
 /**
  * Wording for a section heading. The heading reads as one sentence in two
- * parts, e.g. "What we do." then "Done locally." in the accent colour.
+ * parts, e.g. "Phones, broadband and mobile." then "All in one place." in the
+ * accent colour.
  */
 export interface SectionCopy {
   readonly eyebrow: string;

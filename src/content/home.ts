@@ -31,10 +31,10 @@ export const heroChip: HeroChipProps = {
 
 export const servicesCopy: SectionCopy = {
   eyebrow: "Our services",
-  lead: "What we do.",
-  accent: "Done locally.",
+  lead: "Phones, broadband and mobile.",
+  accent: "All in one place.",
   intro:
-    "Phones, broadband and mobile from one local team, with support and site visits included as standard.",
+    "We supply, set up and look after everything, with site visits included as standard.",
 };
 
 export const telephonyCard: ServiceCardContent = {
