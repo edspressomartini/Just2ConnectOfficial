@@ -23,7 +23,8 @@ const SUBMIT_LABEL: { readonly [K in SubmissionStatus]: string } = {
 };
 
 export interface ContactFormProps {
-  readonly heading: string;
+  /** Omit when the surrounding section already has the heading. */
+  readonly heading?: string;
   readonly intro?: string;
   /**
    * The heading sits on a dark illustrated background on service pages, and on
@@ -83,7 +84,9 @@ export function ContactForm({
 
   return (
     <div className="enquiryForm">
-      <h2 className={headingClass}>{heading}</h2>
+      {heading === undefined ? null : (
+        <h2 className={headingClass}>{heading}</h2>
+      )}
       {intro !== undefined ? <p className="enquiryForm__intro">{intro}</p> : null}
 
       <form ref={formRef} onSubmit={handleSubmit} noValidate={false}>

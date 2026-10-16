@@ -7,7 +7,6 @@ import { FaqJsonLd } from "@/components/FaqJsonLd";
 import { business } from "@/content/business";
 import {
   SWITCH_OFF_DATE_LABEL,
-  SWITCH_OFF_ISO_DATE,
   affectedDevices,
   checkSteps,
   faqs,
@@ -17,12 +16,11 @@ import {
   type ServiceVerdict,
 } from "@/content/digital-switchover";
 import { buildPageMetadata } from "@/lib/metadata";
-
-const MS_PER_DAY = 86_400_000;
+import { daysRemaining } from "@/lib/switch-off";
 
 /*
  * Regenerated daily so the countdown in the hero never goes stale. Next only
- * accepts a literal here, so the day cannot be shared with MS_PER_DAY.
+ * accepts a literal here, so the day cannot be shared with the countdown code.
  */
 export const revalidate = 86400;
 
@@ -38,16 +36,6 @@ const verdictModifiers: Readonly<Record<ServiceVerdict, string>> = {
   Changes: "switchOffStatus__badge--changes",
   Unaffected: "switchOffStatus__badge--safe",
 };
-
-function daysRemaining(): number {
-  const remaining = Date.parse(SWITCH_OFF_ISO_DATE) - Date.now();
-
-  if (remaining <= 0) {
-    return 0;
-  }
-
-  return Math.ceil(remaining / MS_PER_DAY);
-}
 
 export default function DigitalSwitchoverPage() {
   const days = daysRemaining();

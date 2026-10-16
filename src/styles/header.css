@@ -1,16 +1,30 @@
 .siteHeader {
-  background-color: var(--colourBackWhite);
-  box-shadow: 1px 1px 13px 10px #d6def0;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 30;
+  border-bottom: 1px solid var(--line);
+  background-color: rgba(250, 250, 248, 0.82);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+}
+
+/* Without the blur the page would show through the translucent bar. */
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .siteHeader {
+    background-color: var(--ground);
+  }
 }
 
 .siteHeader__bar {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 12px 20px;
+  gap: 12px;
+  max-width: var(--max);
   min-height: var(--headerHeight);
+  margin: 0 auto;
+  padding: 10px var(--pad);
 }
 
 .siteHeader__logo {
@@ -26,13 +40,13 @@
  * height of the logo.
  */
 .siteHeader__logoImage {
-  height: 40px;
+  height: 36px;
   width: auto;
 }
 
 @media screen and (min-width: 600px) {
   .siteHeader__logoImage {
-    height: 50px;
+    height: 42px;
   }
 }
 
@@ -40,57 +54,55 @@
   flex: 1;
 }
 
-/* Desktop navigation */
+/* Desktop navigation, centred between the logo and the actions. */
 .siteNav {
   display: none;
 }
 
 @media screen and (min-width: 992px) {
+  .siteHeader__spacer {
+    display: none;
+  }
+
   .siteNav {
     display: flex;
     align-items: center;
-    gap: 4px;
+    margin-inline: auto;
   }
 }
 
 .siteNav__list {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   list-style: none;
 }
 
 .siteNav__link {
-  position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 10px 16px;
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--colourTextGrey);
-  background: none;
+  padding: 8px 12px;
   border: none;
+  border-radius: var(--radius-pill);
+  background: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink-body);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .siteNav__link:hover,
+.siteNav__dropdownToggle[aria-expanded="true"] {
+  background-color: rgba(21, 27, 61, 0.05);
+  color: var(--ink);
+}
+
 .siteNav__link[aria-current="page"] {
-  color: var(--colourPop);
-}
-
-.siteNav__link::after {
-  content: "";
-  position: absolute;
-  left: 16px;
-  bottom: 4px;
-  width: 0;
-  height: 3px;
-  background-color: var(--colourPop);
-  transition: width 0.35s ease;
-}
-
-.siteNav__link:hover::after,
-.siteNav__link[aria-current="page"]::after {
-  width: calc(100% - 32px);
+  color: var(--pink);
 }
 
 /* Dropdown */
@@ -112,33 +124,43 @@
 
 .siteNav__menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 10px);
   left: 0;
-  min-width: 240px;
+  min-width: 248px;
+  padding: 8px;
   list-style: none;
-  background-color: var(--colourBackWhite);
-  border: 2px solid var(--colourBackLilac);
-  border-radius: 8px;
-  padding: 8px 0;
-  box-shadow: 0 8px 24px rgba(31, 48, 109, 0.12);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-float);
 }
 
 .siteNav__menuLink {
   display: block;
-  padding: 10px 20px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink-body);
   text-decoration: none;
-  color: var(--colourTextGrey);
-  font-weight: 600;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .siteNav__menuLink:hover {
-  color: var(--colourPop);
+  background-color: var(--panel);
+  color: var(--ink);
+}
+
+.siteNav__menuLink[aria-current="page"] {
+  color: var(--pink);
 }
 
 /*
  * Held back to 1100px rather than the 992px the nav appears at. Between the
  * two the bar has no room for it, and the phone button gets pushed off the
- * end. The mobile menu carries the link below that.
+ * end. The plain Contact link in the nav covers that range instead.
  */
 .headerQuote {
   display: none;
@@ -153,21 +175,20 @@
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
-    margin-right: 12px;
-    padding: 10px 18px;
-    border: 2px solid var(--colourPop);
-    border-radius: 10px;
-    background-color: var(--colourPop);
-    color: var(--colourBackWhite);
-    font-weight: bold;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: var(--radius-pill);
+    background-color: var(--pink);
+    color: var(--surface);
+    font-size: 0.9375rem;
+    font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease;
   }
 
   .headerQuote:hover {
-    background-color: var(--colourBackWhite);
-    color: var(--colourPop);
+    background-color: var(--pink-deep);
   }
 }
 
@@ -178,28 +199,34 @@
 .headerCall {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-shrink: 0;
-  padding: 10px 18px;
-  border: 2px solid var(--colourPop);
-  border-radius: 10px;
-  background-color: var(--colourBackWhite);
-  color: var(--colourPop);
-  font-weight: bold;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background-color: var(--surface);
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-variant-numeric: tabular-nums;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .headerCall:hover {
-  background-color: var(--colourPop);
-  color: var(--colourBackWhite);
+  border-color: var(--pink);
+  color: var(--pink);
 }
 
 .headerCall__icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
+  color: var(--pink);
 }
 
 /* On the narrowest screens show the icon alone to protect the layout. */
@@ -209,7 +236,9 @@
   }
 
   .headerCall {
-    padding: 10px 12px;
+    width: 44px;
+    padding: 0;
+    justify-content: center;
   }
 }
 
@@ -219,13 +248,13 @@
   flex-direction: column;
   justify-content: center;
   gap: 5px;
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
-  padding: 10px;
-  border: 2px solid var(--colourBackLilac);
-  border-radius: 8px;
-  background-color: var(--colourBackWhite);
-  flex-shrink: 0;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background-color: var(--surface);
 }
 
 @media screen and (min-width: 992px) {
@@ -236,16 +265,37 @@
 
 .siteHeader__burgerLine {
   display: block;
-  height: 2px;
+  height: 1.5px;
   width: 100%;
-  background-color: var(--colourTextDark);
   border-radius: 2px;
+  background-color: var(--ink);
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-/* Mobile panel */
+.siteHeader__burger[aria-expanded="true"] .siteHeader__burgerLine:nth-child(2) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.siteHeader__burger[aria-expanded="true"] .siteHeader__burgerLine:nth-child(3) {
+  opacity: 0;
+}
+
+.siteHeader__burger[aria-expanded="true"] .siteHeader__burgerLine:nth-child(4) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/*
+ * Mobile panel. Capped to the screen below the sticky bar so a long menu
+ * scrolls inside itself rather than running off the bottom.
+ */
 .mobileNav {
-  border-top: 2px solid var(--colourBackLilac);
-  padding: 8px 20px 20px;
+  max-height: calc(100dvh - var(--headerHeight));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-top: 1px solid var(--line);
+  padding: 8px var(--pad) 24px;
 }
 
 @media screen and (min-width: 992px) {
@@ -261,23 +311,22 @@
 .mobileNav__link {
   display: block;
   padding: 14px 4px;
-  font-weight: bold;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--ink);
   text-decoration: none;
-  color: var(--colourTextGrey);
-  border-bottom: 1px solid var(--colourBackLilac);
 }
 
 .mobileNav__link:hover,
 .mobileNav__link[aria-current="page"] {
-  color: var(--colourPop);
+  color: var(--pink);
 }
 
 .mobileNav__groupLabel {
   display: block;
-  padding: 18px 4px 6px;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--colourPop);
-  font-weight: bold;
+  padding: 20px 4px 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--pink);
 }

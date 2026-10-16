@@ -1,41 +1,19 @@
-/*
- * Transition from the page into the navy footer. The artwork is a 900x300
- * artboard, so at desktop widths `height: auto` rendered it nearly 500px tall
- * and almost all of that was empty fill. It is squashed to a fixed height
- * instead, which the SVG allows via preserveAspectRatio="none".
- *
- * The background colour matters: the top of the artwork is transparent above
- * the first wave crest, so without it that strip shows the body lilac and
- * leaves a hard edge under the pale section above.
- */
-.wavesFooter {
-  display: block;
-  width: 100%;
-  height: 70px;
-  background-color: var(--colourBackLilac);
-  /* Kills the sliver of page background that rounding can leave underneath. */
-  margin-bottom: -1px;
-}
-
-@media screen and (min-width: 768px) {
-  .wavesFooter {
-    height: 110px;
-  }
-}
-
 .footer {
-  width: 100%;
-  background-color: var(--colourTextDark);
-  color: #c3cce6;
-  padding: 40px 6% 32px;
+  border-top: 1px solid var(--line);
+  background-color: var(--ground);
+  color: var(--ink-body);
+}
+
+.footer__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 80px) var(--pad) 32px;
 }
 
 .footer__columns {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 36px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 40px;
 }
 
 @media screen and (min-width: 600px) {
@@ -50,30 +28,33 @@
  */
 @media screen and (min-width: 1000px) {
   .footer__columns {
-    grid-template-columns: 1.6fr 1fr 1fr 1.1fr;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
   }
 }
 
-.footer__brand {
-  font-size: 1.375rem;
-  font-weight: bold;
-  color: var(--colourBackWhite);
-  padding-bottom: 12px;
+.footer__logo {
+  display: inline-flex;
+}
+
+.footer__logoImage {
+  height: 44px;
+  width: auto;
 }
 
 .footer__blurb {
+  max-width: 40ch;
+  padding-top: 20px;
   font-size: 0.9375rem;
-  line-height: 1.7;
-  max-width: 42ch;
+  line-height: 1.65;
+  color: var(--muted);
 }
 
 .footer__columnTitle {
-  font-size: 0.8125rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--colourBackWhite);
   padding-bottom: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--muted);
 }
 
 .footer__list {
@@ -86,19 +67,20 @@
 
 .footer__link,
 .footer__contactLink {
-  color: #c3cce6;
+  color: var(--ink-body);
   text-decoration: none;
+  transition: color 200ms ease;
 }
 
 .footer__link:hover,
 .footer__contactLink:hover {
-  color: var(--colourBackWhite);
-  text-decoration: underline;
+  color: var(--pink);
 }
 
 .footer__contactLink {
-  font-weight: bold;
-  color: var(--colourBackWhite);
+  font-weight: 500;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
 }
 
 .footer__address {
@@ -107,40 +89,58 @@
 }
 
 .footer__hours {
-  color: #9aa7c9;
+  color: var(--muted);
 }
 
 .footer__social {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-top: 20px;
+  gap: 10px;
+  padding-top: 24px;
 }
 
 .footer__socialLink {
-  display: inline-flex;
-  transition: transform 300ms ease;
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background-color: var(--surface);
+  color: var(--ink);
+  transition:
+    border-color 200ms ease,
+    color 200ms ease;
 }
 
 .footer__socialLink:hover {
-  transform: translateY(-3px);
+  border-color: var(--pink);
+  color: var(--pink);
 }
 
-/* The icons are drawn in dark ink, so they need lightening on the navy. */
 .footer__socialIcon {
-  width: 38px;
-  height: 38px;
-  filter: invert(1) brightness(1.8);
+  width: 18px;
+  height: 18px;
 }
 
 .footer__base {
-  max-width: 1200px;
-  margin: 36px auto 0;
+  margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 0.8rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
   line-height: 1.7;
-  color: #9aa7c9;
+  color: var(--muted);
+}
+
+/* Inside a sentence, so colour alone does not mark them out as links. */
+.footer__areas .footer__link {
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+}
+
+.footer__areas .footer__link:hover {
+  text-decoration-color: currentColor;
 }
 
 .footer__legal {

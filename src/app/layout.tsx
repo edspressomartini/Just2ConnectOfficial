@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Mulish } from "next/font/google";
+import { Geist } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { Footer } from "@/components/Footer";
@@ -12,13 +12,18 @@ import { CookieConsent } from "@/components/consent/CookieConsent";
 import { business } from "@/content/business";
 
 import "@/styles/globals.css";
+import "@/styles/primitives.css";
 import "@/styles/grid.css";
 import "@/styles/header.css";
 import "@/styles/footer.css";
 import "@/styles/mobile-call-bar.css";
 import "@/styles/whatsapp.css";
 import "@/styles/contact-form.css";
+import "@/styles/enquiry-section.css";
 import "@/styles/cookie-consent.css";
+import "@/styles/console-status.css";
+import "@/styles/scenes.css";
+import "@/styles/hero-scenes.css";
 import "@/styles/home.css";
 import "@/styles/logo-marquee.css";
 import "@/styles/credentials.css";
@@ -29,11 +34,14 @@ import "@/styles/contact.css";
 import "@/styles/about.css";
 import "@/styles/prose.css";
 
-/** Mulish replaces the Typekit "muli" webfont, removing a render-blocking request. */
-const mulish = Mulish({
+/**
+ * Self-hosted by next/font, so it costs no render-blocking request. Exposed as
+ * a variable because `--font-sans` in globals.css adds the system fallbacks.
+ */
+const geist = Geist({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "700"],
+  variable: "--font-geist",
 });
 
 export const metadata: Metadata = {
@@ -61,7 +69,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1f306d",
+  themeColor: "#fafaf8",
   width: "device-width",
   initialScale: 1,
 };
@@ -72,7 +80,7 @@ export default function RootLayout({
   readonly children: ReactNode;
 }) {
   return (
-    <html lang="en-GB" className={mulish.className}>
+    <html lang="en-GB" className={geist.variable}>
       <body>
         <a href="#main" className="skipLink">
           Skip to content

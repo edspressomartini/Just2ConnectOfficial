@@ -1,8 +1,10 @@
 import Image from "next/image";
 
+import { SectionHeading } from "@/components/SectionHeading";
 import { testimonials } from "@/content/testimonials";
 import type { Testimonial } from "@/content/testimonials";
 import fiveStars from "@/images/icons/FiveStars.svg";
+import type { TestimonialsProps } from "@/types/testimonials-props";
 
 /** Renders the quote with its emphasised fragment marked up. */
 function Quote({ testimonial }: { readonly testimonial: Testimonial }) {
@@ -24,16 +26,19 @@ function Quote({ testimonial }: { readonly testimonial: Testimonial }) {
   );
 }
 
-export function Testimonials() {
+export function Testimonials({ copy }: TestimonialsProps) {
   return (
-    <section className="testimonialSection" aria-labelledby="testimonials-heading">
-      <h2 id="testimonials-heading" className="testimonialSection__title">
-        What our customers say
-      </h2>
+    <section
+      className="section testimonials"
+      aria-labelledby="testimonials-heading"
+    >
+      <div className="container">
+        <SectionHeading id="testimonials-heading" copy={copy} />
+      </div>
 
       <ul className="testimonialTrack">
         {testimonials.map((testimonial) => (
-          <li key={testimonial.company} className="testimonial">
+          <li key={testimonial.company} className="testimonial card">
             <Image
               src={fiveStars}
               alt="Rated five out of five"
@@ -41,15 +46,15 @@ export function Testimonials() {
               unoptimized
             />
 
-            <blockquote>
+            <blockquote className="testimonial__body">
               <Quote testimonial={testimonial} />
             </blockquote>
 
             <footer className="testimonial__attribution">
-              <div className="testimonial__name">
-                {testimonial.name}, {testimonial.role}
+              <div className="testimonial__name">{testimonial.name}</div>
+              <div className="testimonial__company">
+                {testimonial.role}, {testimonial.company}
               </div>
-              <div className="testimonial__company">{testimonial.company}</div>
             </footer>
           </li>
         ))}
