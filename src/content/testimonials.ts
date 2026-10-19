@@ -3,11 +3,29 @@ export interface Testimonial {
   /** Fragment of `quote` to render in the accent colour. */
   readonly emphasis: string;
   readonly name: string;
-  readonly role: string;
-  readonly company: string;
+  /*
+   * Optional, because the reviews taken from the Google Business Profile carry
+   * only a reviewer name. Leaving them out is better than inventing a job
+   * title, but a named company is stronger proof, so fill these in as they are
+   * confirmed.
+   */
+  readonly role?: string;
+  readonly company?: string;
 }
 
 export const testimonials: readonly Testimonial[] = [
+  {
+    quote:
+      "Fantastic company to work with. Terry and his team have been exceptional throughout our migration to a new phone system, guiding us through both the planning and implementation stages with expertise and professionalism.",
+    emphasis: "exceptional throughout our migration",
+    name: "David Pinkham",
+  },
+  {
+    quote:
+      "The best decision we made was transferring to Just2Connect. The service provided from start to finish has been exceptional and continues to be so with the after care.",
+    emphasis: "The best decision we made",
+    name: "Lesley Baker",
+  },
   {
     quote:
       "It was the best thing we ever did! Terry and his team offer a first-class service - highly recommend them",
@@ -15,6 +33,12 @@ export const testimonials: readonly Testimonial[] = [
     name: "Jackie Steadman",
     role: "Founder",
     company: "TravelTimeWorld",
+  },
+  {
+    quote:
+      "I have used the services of Just2Connect for several years and in that time I have always experienced excellent customer service, as well as responsive and supportive communications. Terry and his team consistently go over and above to ensure we are fully connected.",
+    emphasis: "go over and above",
+    name: "Emma Power",
   },
   {
     quote:
@@ -26,11 +50,9 @@ export const testimonials: readonly Testimonial[] = [
   },
   {
     quote:
-      "They are a great company to work with, they know us and our set up personally - I really could not be happier with the service",
-    emphasis: "could not be happier with the service",
-    name: "Melanie Langley",
-    role: "Managing Director",
-    company: "Oliver Myles",
+      "Just2Connect is an excellent supplier of VoIP and internet services. Terry is extremely professional, knowledgeable and reliable, and the level of service provided is consistently very high.",
+    emphasis: "professional, knowledgeable and reliable",
+    name: "Yaniv Monfort",
   },
   {
     quote:

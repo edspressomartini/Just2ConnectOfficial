@@ -6,6 +6,28 @@ import type { Testimonial } from "@/content/testimonials";
 import fiveStars from "@/images/icons/FiveStars.svg";
 import type { TestimonialsProps } from "@/types/testimonials-props";
 
+/** The line under the name, omitted entirely when we have neither part of it. */
+function attributionFor(testimonial: Testimonial): string | undefined {
+  if (testimonial.role !== undefined && testimonial.company !== undefined) {
+    return `${testimonial.role}, ${testimonial.company}`;
+  }
+
+  return testimonial.company ?? testimonial.role;
+}
+
+function Attribution({ testimonial }: { readonly testimonial: Testimonial }) {
+  const attribution = attributionFor(testimonial);
+
+  return (
+    <footer className="testimonial__attribution">
+      <div className="testimonial__name">{testimonial.name}</div>
+      {attribution === undefined ? null : (
+        <div className="testimonial__company">{attribution}</div>
+      )}
+    </footer>
+  );
+}
+
 /** Renders the quote with its emphasised fragment marked up. */
 function Quote({ testimonial }: { readonly testimonial: Testimonial }) {
   const index = testimonial.quote.indexOf(testimonial.emphasis);
@@ -38,7 +60,7 @@ export function Testimonials({ copy }: TestimonialsProps) {
 
       <ul className="testimonialTrack">
         {testimonials.map((testimonial) => (
-          <li key={testimonial.company} className="testimonial card">
+          <li key={testimonial.name} className="testimonial card">
             <Image
               src={fiveStars}
               alt="Rated five out of five"
@@ -50,12 +72,7 @@ export function Testimonials({ copy }: TestimonialsProps) {
               <Quote testimonial={testimonial} />
             </blockquote>
 
-            <footer className="testimonial__attribution">
-              <div className="testimonial__name">{testimonial.name}</div>
-              <div className="testimonial__company">
-                {testimonial.role}, {testimonial.company}
-              </div>
-            </footer>
+            <Attribution testimonial={testimonial} />
           </li>
         ))}
       </ul>
