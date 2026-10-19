@@ -53,6 +53,11 @@ export interface ServiceContent {
   /** Pipe-separated strapline fragments under the heading. */
   readonly strapline: readonly string[];
   readonly metaTitle: string;
+  /*
+   * Set where the title needs the full width Google will show and the brand
+   * suffix would push it into being truncated. See `buildPageMetadata`.
+   */
+  readonly metaTitleWithoutBrand?: boolean;
   readonly metaDescription: string;
   readonly heroImage: StaticImageData;
   readonly heroImageAlt: string;

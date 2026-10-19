@@ -14,7 +14,7 @@ import type { AreaContent } from "@/types/area-content";
 export const hemelHempstead: AreaContent = {
   slug: "hemel-hempstead",
   town: "Hemel Hempstead",
-  metaTitle: "Telephone Systems & Broadband in Hemel Hempstead",
+  metaTitle: "Business VoIP & Telephone Systems in Hemel Hempstead",
   metaDescription:
     "Full fibre reaches most of Hemel Hempstead and the exchange stop-sell is already in force. What that means for your phones and broadband, in plain terms.",
   heading: "Business Broadband and Telephone Systems in Hemel Hempstead",

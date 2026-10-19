@@ -6,9 +6,10 @@ export const telephoneSystems: ServiceContent = {
   navLabel: "Telephone Systems",
   heading: "Telephone Systems",
   strapline: ["VoIP", "Hosted PBX", "Cloud Telephony"],
-  metaTitle: "Business Telephone Systems in Hertfordshire",
+  metaTitle: "Business VoIP Telephone Systems in Hertfordshire",
+  metaTitleWithoutBrand: true,
   metaDescription:
-    "Cloud telephone systems for businesses in Hertfordshire, Bedfordshire and Buckinghamshire. VoIP and hosted PBX with unlimited support and 30 day contracts.",
+    "Business VoIP and hosted PBX telephone systems across Hertfordshire, Bedfordshire and Buckinghamshire. Unlimited support, site visits included, 30 day contracts.",
   heroImage,
   heroImageAlt:
     "Grandstream desk phone supplied and configured by Just2Connect",

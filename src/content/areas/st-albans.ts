@@ -15,7 +15,7 @@ import type { AreaContent } from "@/types/area-content";
 export const stAlbans: AreaContent = {
   slug: "st-albans",
   town: "St Albans",
-  metaTitle: "Telephone Systems & Broadband in St Albans",
+  metaTitle: "Business VoIP & Telephone Systems in St Albans",
   metaDescription:
     "St Albans businesses moved to digital phones early, and both local exchanges are under an Openreach stop-sell. What that means, and how to choose.",
   heading: "Business Broadband and Telephone Systems in St Albans",

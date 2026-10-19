@@ -12,7 +12,7 @@ import type { AreaContent } from "@/types/area-content";
 export const watford: AreaContent = {
   slug: "watford",
   town: "Watford",
-  metaTitle: "Telephone Systems & Broadband in Watford",
+  metaTitle: "Business VoIP & Telephone Systems in Watford",
   metaDescription:
     "Full fibre is widely available in Watford and the exchange stop-sell has applied since 2024. For buildings fibre has missed, we use 4G and 5G routers.",
   heading: "Business Broadband and Telephone Systems in Watford",

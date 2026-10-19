@@ -14,7 +14,7 @@ import type { AreaContent } from "@/types/area-content";
 export const luton: AreaContent = {
   slug: "luton",
   town: "Luton",
-  metaTitle: "Telephone Systems & Broadband in Luton",
+  metaTitle: "Business VoIP & Telephone Systems in Luton",
   metaDescription:
     "Digital phones work everywhere in Luton. Broadband does not. Starlink, SIM routers and fixed lines, for businesses the fibre rollout has not reached.",
   heading: "Business Broadband and Telephone Systems in Luton",

@@ -7,6 +7,13 @@ export interface PageMetadataInput {
   readonly description: string;
   /** Root-relative path, e.g. "/contact-us". */
   readonly path: string;
+  /*
+   * Skips the root layout's `%s | Just2Connect` template. The suffix costs 15
+   * of the ~60 characters Google will show, which is worth paying on pages
+   * someone might reach by name and not worth it on the town pages, where the
+   * room is better spent on the words people actually search.
+   */
+  readonly titleWithoutBrand?: boolean;
 }
 
 /*
@@ -28,9 +35,10 @@ export function buildPageMetadata({
   title,
   description,
   path,
+  titleWithoutBrand = false,
 }: PageMetadataInput): Metadata {
   return {
-    title,
+    title: titleWithoutBrand ? { absolute: title } : title,
     description,
     alternates: { canonical: path },
     openGraph: {
@@ -48,5 +56,6 @@ export function buildServiceMetadata(service: ServiceContent): Metadata {
     title: service.metaTitle,
     description: service.metaDescription,
     path: `/${service.slug}`,
+    titleWithoutBrand: service.metaTitleWithoutBrand,
   });
 }

@@ -23,7 +23,7 @@ import type { AreaContent } from "@/types/area-content";
 export const harpenden: AreaContent = {
   slug: "harpenden",
   town: "Harpenden",
-  metaTitle: "Telephone Systems & Broadband in Harpenden",
+  metaTitle: "Business VoIP & Telephone Systems in Harpenden",
   metaDescription:
     "Harpenden businesses can choose between two full fibre networks. We are whole of market across Openreach and CityFibre, and we do the cabling too.",
   heading: "Business Broadband and Telephone Systems in Harpenden",

@@ -37,6 +37,7 @@ export async function generateMetadata({
     title: area.metaTitle,
     description: area.metaDescription,
     path: `/areas/${area.slug}`,
+    titleWithoutBrand: true,
   });
 }
 

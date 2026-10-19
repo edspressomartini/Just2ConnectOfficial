@@ -40,11 +40,11 @@ export const pageLastModified: readonly PageLastModified[] = [
   { path: "/virtual-phone-numbers", date: "2026-09-29" },
   { path: "/business-mobile-sim", date: "2026-09-29" },
 
-  { path: "/areas/berkhamsted", date: "2026-10-06" },
-  { path: "/areas/harpenden", date: "2026-10-06" },
-  { path: "/areas/hemel-hempstead", date: "2026-10-06" },
-  { path: "/areas/luton", date: "2026-10-06" },
-  { path: "/areas/st-albans", date: "2026-10-06" },
-  { path: "/areas/tring", date: "2026-10-06" },
-  { path: "/areas/watford", date: "2026-10-06" },
+  { path: "/areas/berkhamsted", date: "2026-10-19" },
+  { path: "/areas/harpenden", date: "2026-10-19" },
+  { path: "/areas/hemel-hempstead", date: "2026-10-19" },
+  { path: "/areas/luton", date: "2026-10-19" },
+  { path: "/areas/st-albans", date: "2026-10-19" },
+  { path: "/areas/tring", date: "2026-10-19" },
+  { path: "/areas/watford", date: "2026-10-19" },
 ];
