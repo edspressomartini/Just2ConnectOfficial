@@ -3,9 +3,9 @@ import type { ContentBlock } from "@/types/content-block";
 import type { ServiceContent } from "@/types/service-content";
 
 export interface BroadbandSpeedTier {
-  /** The name a supplier will quote, since that is what a reader is matching against. */
+  /** Plain English, because nobody shops for "SOGEA". */
   readonly name: string;
-  /** The older and retail names for the same thing, so a reader can place it. */
+  /** The trade and retail names, so a reader comparing quotes can match them up. */
   readonly technology: string;
   /** Who this tier is actually for, so a reader can pick without calling. */
   readonly bestFor: string;
@@ -33,8 +33,8 @@ export interface BroadbandSpeedTier {
  */
 export const broadbandSpeedTiers: readonly BroadbandSpeedTier[] = [
   {
-    name: "SOGEA",
-    technology: "Previously FTTC, also known as superfast.",
+    name: "Fibre",
+    technology: "Often called SOGEA, FTTC or superfast.",
     bestFor:
       "Small offices and shops, where a handful of people are online at once.",
     downloadMbps: "40 to 80",
@@ -57,7 +57,7 @@ export const broadbandSpeedTiers: readonly BroadbandSpeedTier[] = [
     fromPrice: "£49.95 a month",
   },
   {
-    name: "Leased line",
+    name: "Leased Line",
     technology: "Dedicated fibre, the same speed both ways.",
     bestFor:
       "Businesses that cannot afford to be offline, or that move large files and run everything in the cloud.",
@@ -112,7 +112,7 @@ export const businessBroadband: ServiceContent = {
   fromPrice: {
     amount: "£39.95",
     unit: "a month",
-    note: "Fibre to the cabinet. Full fibre from £49.95 a month",
+    note: "Entry level fibre. Full fibre from £49.95 a month",
   },
   nutshell: [
     "We have partnered with the UK's leading, award-winning ISP. This gives us the best connectivity at very competitive prices. Plus full service provisioning and a comprehensive range of fault diagnostic tools, all available within our portal.",
@@ -155,7 +155,7 @@ export const businessBroadband: ServiceContent = {
         {
           kind: "list",
           items: [
-            "Fibre to the cabinet: fibre to the street, copper for the last stretch. Known as SOGEA, and previously as FTTC or VDSL. Typically 40MB to 80MB download, 10MB to 20MB upload.",
+            "Fibre: fibre to the street cabinet, copper for the last stretch. Sold as SOGEA, which is the old FTTC broadband and the line rental bundled into one product. Typically 40MB to 80MB download, 10MB to 20MB upload.",
             "Full fibre: fibre all the way into the building. Known as FTTP. Typically 80MB to 1,000MB download, 20MB to 115MB upload.",
             "Leased line: a dedicated fibre that nobody else shares, from 100MB to 10,000MB, the same speed up and down.",
           ],

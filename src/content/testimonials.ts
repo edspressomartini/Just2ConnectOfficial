@@ -5,9 +5,8 @@ export interface Testimonial {
   readonly name: string;
   /*
    * Optional, because the reviews taken from the Google Business Profile carry
-   * only a reviewer name. Leaving them out is better than inventing a job
-   * title, but a named company is stronger proof, so fill these in as they are
-   * confirmed.
+   * only a reviewer name. The companies were confirmed by Terry afterwards;
+   * the job titles were not, so those stay off rather than being guessed at.
    */
   readonly role?: string;
   readonly company?: string;
@@ -19,12 +18,14 @@ export const testimonials: readonly Testimonial[] = [
       "Fantastic company to work with. Terry and his team have been exceptional throughout our migration to a new phone system, guiding us through both the planning and implementation stages with expertise and professionalism.",
     emphasis: "exceptional throughout our migration",
     name: "David Pinkham",
+    company: "Pinkham Blair",
   },
   {
     quote:
       "The best decision we made was transferring to Just2Connect. The service provided from start to finish has been exceptional and continues to be so with the after care.",
     emphasis: "The best decision we made",
     name: "Lesley Baker",
+    company: "Heirs & Graces",
   },
   {
     quote:
@@ -39,6 +40,7 @@ export const testimonials: readonly Testimonial[] = [
       "I have used the services of Just2Connect for several years and in that time I have always experienced excellent customer service, as well as responsive and supportive communications. Terry and his team consistently go over and above to ensure we are fully connected.",
     emphasis: "go over and above",
     name: "Emma Power",
+    company: "Sunnyside Rural Trust",
   },
   {
     quote:
@@ -53,6 +55,14 @@ export const testimonials: readonly Testimonial[] = [
       "Just2Connect is an excellent supplier of VoIP and internet services. Terry is extremely professional, knowledgeable and reliable, and the level of service provided is consistently very high.",
     emphasis: "professional, knowledgeable and reliable",
     name: "Yaniv Monfort",
+    company: "FNS Ltd",
+  },
+  {
+    quote:
+      "Excellent service, always helpful and on hand should we require assistance. Highly recommended.",
+    emphasis: "always helpful and on hand",
+    name: "Michelle Lee",
+    company: "EIC Insurance",
   },
   {
     quote:

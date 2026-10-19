@@ -55,39 +55,38 @@ export const credentials: readonly Credential[] = [
   },
   {
     /*
-     * TODO: confirm the year the front page ran. An undated achievement reads
-     * as either recent or evasive, and we cannot date it until Terry confirms.
      * The paper was The Gazette at the time and has since been renamed Hemel
-     * Today, so both names have to appear or the claim stops checking out.
+     * Today, so both names appear or the claim stops checking out. The 2014
+     * date is Terry's recollection rather than a checked one; worth confirming
+     * against the paper before anyone leans on it.
      */
     title: "Superfast broadband for Berkhamsted business",
     detail:
-      "Front page of The Gazette, now Hemel Today, for bringing superfast broadband to a Berkhamsted industrial estate that the national providers had left behind.",
+      "Front page of The Gazette, now Hemel Today, in 2014, for bringing superfast broadband to a Berkhamsted industrial estate that the national providers had left behind.",
     badge: "Front page news",
   },
   {
     /*
-     * Framed as membership rather than a join date on purpose. The Chamber was
-     * formed in 1993, the old copy wrongly gave that as 2017, and nobody has
-     * been able to confirm the year we actually joined. Naming the networks
-     * says the same thing without resting on a date we cannot stand behind.
+     * The Chamber was formed in 1993 and we joined in 2017; the old copy
+     * conflated the two. Titled on the networks rather than the Chamber alone
+     * because the Chamber is one of several Terry is active in.
      */
     title: "Member of local business networks",
     detail:
-      "Terry is an active member of the business networks around the towns we serve, including the Berkhamsted & District Chamber of Commerce, which has represented businesses across the district since 1993.",
-    badge: "Berkhamsted Chamber",
+      "Terry is an active member of the business networks around the towns we serve, including the Berkhamsted & District Chamber of Commerce, which has represented the district since 1993 and which we joined in 2017.",
+    badge: "Member since 2017",
   },
   {
     title: "Proud Corporate Partner of The Hospice of St Francis",
     detail:
-      "Part of the Corporate Partner Programme since 2016, supporting the hospice's work across Berkhamsted and the surrounding towns.",
-    badge: "Partner since 2016",
+      "Part of the Corporate Partner Programme since 2014, supporting the hospice's work across Berkhamsted and the surrounding towns.",
+    badge: "Partner since 2014",
   },
   {
     title: "Dragons' Apprentice Challenge",
     detail:
-      "We back teams of local sixth-formers through the Challenge, giving them a stake of seed money and a year of mentoring to grow it for charity.",
-    badge: "Supporting local schools",
+      "Teams of eight Year 12 students are given £100 of seed capital and six months to turn it into £1,000 for charity. We mentored one of the teams, and they raised over £4,000.",
+    badge: "£4,000 raised",
   },
   {
     title: "Registered and accountable",
