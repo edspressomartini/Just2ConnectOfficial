@@ -22,9 +22,7 @@ import HSD from "@/images/Contact/HSD.png";
 import Indigo from "@/images/Contact/Indigo.svg";
 import MCA from "@/images/Contact/MCA.jpg";
 import NA from "@/images/Contact/NA.png";
-import OliverMyles from "@/images/Contact/OliverMyles.svg";
 import PES from "@/images/Contact/PES.jpg";
-import RedBird from "@/images/Contact/RedBird.png";
 import Sabrefish from "@/images/Contact/Sabrefish.png";
 import TBC from "@/images/Contact/TBC.jpg";
 import TravelTimeWorld from "@/images/Contact/TravelTimeWorld.png";
@@ -47,7 +45,6 @@ export const clientLogos: readonly ClientLogo[] = [
   { name: "Harpenden Golf Club", logo: HarpendenGolf },
   { name: "TravelTime World", logo: TravelTimeWorld },
   { name: "Yellowyoyo", logo: Yellowyoyo },
-  { name: "Oliver Myles", logo: OliverMyles },
   { name: "Brash", logo: Brash },
   { name: "HSD", logo: HSD },
   { name: "TBC", logo: TBC },
@@ -66,7 +63,6 @@ export const clientLogos: readonly ClientLogo[] = [
   { name: "MCA", logo: MCA },
   { name: "NA", logo: NA },
   { name: "PES", logo: PES },
-  { name: "RedBird", logo: RedBird },
   { name: "Ask Rupert", logo: AskRupert, rounded: true },
   { name: "Vine", logo: Vine },
 ];

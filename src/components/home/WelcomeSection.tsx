@@ -20,7 +20,7 @@ export function WelcomeSection() {
             <p>
               Our professional, friendly, solution-focussed team provide a
               first-class <strong>local service</strong>, ensuring our
-              customers&rsquo; needs are at the forefront of everything else.
+              customers&rsquo; needs are at the forefront of everything we do.
             </p>
             <p>
               We offer a range of telephone products and services with

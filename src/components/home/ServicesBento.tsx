@@ -114,11 +114,10 @@ export function ServicesBento() {
             ))}
           </ul>
           <p className="alsoSupply__note">
-            Priced on enquiry, because it depends on the site.{" "}
+            Prices on enquiry.{" "}
             <CallLink source="home-other-services" className="inlineLink">
               Call {business.phone.display}
-            </CallLink>{" "}
-            and we will tell you what it would cost.
+            </CallLink>
           </p>
         </div>
       </div>
