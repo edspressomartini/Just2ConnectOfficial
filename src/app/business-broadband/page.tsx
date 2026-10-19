@@ -24,8 +24,8 @@ export default function BusinessBroadbandPage() {
           Broadband Speeds
         </h2>
         <p className="speedSection__strapline">
-          Typical speeds. What is available depends on your postcode, so tell
-          us where you are and we will confirm exactly what you can get.
+          Available speeds depend on your postcode, so tell us where you are
+          and we will confirm exactly what you can get.
         </p>
 
         <ul className="speedGrid">

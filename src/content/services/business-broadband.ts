@@ -3,9 +3,9 @@ import type { ContentBlock } from "@/types/content-block";
 import type { ServiceContent } from "@/types/service-content";
 
 export interface BroadbandSpeedTier {
-  /** Plain English, because nobody shops for "SOGEA". */
+  /** The name a supplier will quote, since that is what a reader is matching against. */
   readonly name: string;
-  /** The industry names, so a reader comparing quotes can match them up. */
+  /** The older and retail names for the same thing, so a reader can place it. */
   readonly technology: string;
   /** Who this tier is actually for, so a reader can pick without calling. */
   readonly bestFor: string;
@@ -33,8 +33,8 @@ export interface BroadbandSpeedTier {
  */
 export const broadbandSpeedTiers: readonly BroadbandSpeedTier[] = [
   {
-    name: "Fibre to the cabinet",
-    technology: "SOGEA, previously FTTC. Sold as superfast.",
+    name: "SOGEA",
+    technology: "Previously FTTC, also known as superfast.",
     bestFor:
       "Small offices and shops, where a handful of people are online at once.",
     downloadMbps: "40 to 80",
@@ -45,8 +45,8 @@ export const broadbandSpeedTiers: readonly BroadbandSpeedTier[] = [
     fromPrice: "£39.95 a month",
   },
   {
-    name: "Full fibre",
-    technology: "FTTP. Sold as ultrafast.",
+    name: "Full Fibre",
+    technology: "FTTP, also known as ultrafast.",
     bestFor:
       "Most businesses. The best balance of speed and cost, and the natural replacement for anything still on copper.",
     downloadMbps: "80 to 1,000",

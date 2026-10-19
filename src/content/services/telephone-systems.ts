@@ -35,7 +35,7 @@ export const telephoneSystems: ServiceContent = {
     {
       title: "Latest Handsets",
       description:
-        "We supply the latest Grandstream, Polycom, Gigaset, Yealink and Cisco handsets, fully configured and ready to use.",
+        "We supply the latest Grandstream, Polycom, Gigaset and Yealink handsets, fully configured and ready to use.",
     },
     {
       title: "Softphone on Computer",
@@ -50,12 +50,12 @@ export const telephoneSystems: ServiceContent = {
     {
       title: "Call Recording",
       description:
-        "You have the ability to record all incoming and/or outgoing calls, on any extensions.",
+        "Built in as standard, you can record all incoming and/or outgoing calls, on any extension.",
     },
     {
       title: "Online Provisioning",
       description:
-        "Changes are made through the portal rather than raised as a ticket, so adding a user or redirecting a number happens the same day.",
+        "Changes are made through the portal rather than raised as a ticket, so adding a user or redirecting a number happens within minutes.",
     },
   ],
   addOns: {

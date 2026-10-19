@@ -27,15 +27,15 @@ export interface PageLastModified {
 }
 
 export const pageLastModified: readonly PageLastModified[] = [
-  { path: "/", date: "2026-09-29" },
-  { path: "/about-us", date: "2026-09-29" },
+  { path: "/", date: "2026-10-19" },
+  { path: "/about-us", date: "2026-10-19" },
   { path: "/contact-us", date: "2026-09-28" },
   { path: "/privacy-policy", date: "2026-09-25" },
   { path: "/areas", date: "2026-10-01" },
   { path: "/digital-switchover", date: "2026-10-01" },
 
-  { path: "/telephone-systems", date: "2026-10-06" },
-  { path: "/business-broadband", date: "2026-10-06" },
+  { path: "/telephone-systems", date: "2026-10-19" },
+  { path: "/business-broadband", date: "2026-10-19" },
   { path: "/sip-trunks", date: "2026-09-25" },
   { path: "/virtual-phone-numbers", date: "2026-09-29" },
   { path: "/business-mobile-sim", date: "2026-09-29" },
