@@ -51,7 +51,7 @@ export default function HomePage() {
             </h1>
             <p className="homeHero__description">
               We are your local provider in Herts, Beds and Bucks. Whether you
-              need <strong>cloud-based telephony</strong>, a new number or{" "}
+              need <strong>VoIP phone systems</strong>, a new number or{" "}
               <strong>business-strength broadband</strong>, we will provide the
               right solution for your business, at a price you can afford, all
               with exceptional service.

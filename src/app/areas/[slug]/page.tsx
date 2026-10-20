@@ -92,7 +92,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
         <ul className="areaLinks__list">
           <li>
             <Link href="/telephone-systems" className="areaLinks__link">
-              Business telephone systems
+              Business VoIP telephone systems
             </Link>
           </li>
           <li>

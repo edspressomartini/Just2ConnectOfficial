@@ -27,7 +27,7 @@ export interface PageLastModified {
 }
 
 export const pageLastModified: readonly PageLastModified[] = [
-  { path: "/", date: "2026-10-19" },
+  { path: "/", date: "2026-10-20" },
   { path: "/about-us", date: "2026-10-19" },
   { path: "/contact-us", date: "2026-09-28" },
   { path: "/privacy-policy", date: "2026-09-25" },
@@ -40,11 +40,11 @@ export const pageLastModified: readonly PageLastModified[] = [
   { path: "/virtual-phone-numbers", date: "2026-09-29" },
   { path: "/business-mobile-sim", date: "2026-09-29" },
 
-  { path: "/areas/berkhamsted", date: "2026-10-19" },
-  { path: "/areas/harpenden", date: "2026-10-19" },
-  { path: "/areas/hemel-hempstead", date: "2026-10-19" },
-  { path: "/areas/luton", date: "2026-10-19" },
-  { path: "/areas/st-albans", date: "2026-10-19" },
-  { path: "/areas/tring", date: "2026-10-19" },
-  { path: "/areas/watford", date: "2026-10-19" },
+  { path: "/areas/berkhamsted", date: "2026-10-20" },
+  { path: "/areas/harpenden", date: "2026-10-20" },
+  { path: "/areas/hemel-hempstead", date: "2026-10-20" },
+  { path: "/areas/luton", date: "2026-10-20" },
+  { path: "/areas/st-albans", date: "2026-10-20" },
+  { path: "/areas/tring", date: "2026-10-20" },
+  { path: "/areas/watford", date: "2026-10-20" },
 ];
