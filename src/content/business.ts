@@ -46,7 +46,12 @@ export interface Business {
   readonly phone: PhoneNumber;
   readonly email: string;
   readonly address: PostalAddress;
-  /** Towns we actually have customers in. Named in copy. */
+  /*
+   * Towns we actually have customers in and want more of. Named in copy, in
+   * the footer and in `areaServed` in the structured data, so a town listed
+   * here is a town we are advertising for. Aylesbury was removed in October
+   * 2026 for that reason: it drew the search traffic but not the work we want.
+   */
   readonly townsServed: readonly string[];
   /** Wider counties, for structured data rather than copy. */
   readonly countiesServed: readonly string[];
@@ -79,7 +84,6 @@ export const business: Business = {
     "St Albans",
     "Harpenden",
     "Harrow",
-    "Aylesbury",
     "Watford",
     "Luton",
   ],
